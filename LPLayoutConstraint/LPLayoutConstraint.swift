@@ -18,11 +18,10 @@ extension NSLayoutYAxisAnchor: LPLayoutAnchor {}
 extension NSLayoutDimension: LPLayoutAnchor {}
 
 struct LPLayoutConstraint {
-    let view: UIView
+    private let view: UIView
     init(_ view: UIView) { self.view = view }
     
-    func constraints(_ closure: (_ make: LPMarker) -> Void) {
-        view.translatesAutoresizingMaskIntoConstraints = false
+    func constraints(_ closure: (LPMarker) -> Void) {
         closure(LPMarker(view))
     }
     
@@ -86,6 +85,7 @@ class LPMarker {
         let anchor = otherAnchor ?? view.superview
         assert(anchor != nil, "superview is nil.")
         
+        view.translatesAutoresizingMaskIntoConstraints = false
         var constraints: [NSLayoutConstraint] = []
         attributes.forEach {
             switch $0 {
