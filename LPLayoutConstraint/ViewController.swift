@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         
         let v = UILabel()
         v.text = "ldsjflsdfjdsu5t945utorejterjtgerjg945ut9erut9458u89utgorjgou4598tu45tu45iotg45tj5o4tu3uooujoujolf"
+        v.numberOfLines = 0
         v.backgroundColor = UIColor.red
         view.addSubview(v)
         v.lp.constraints {
