@@ -54,35 +54,35 @@ class LPMarker {
     
     @discardableResult
     func equal(to anchor: LPLayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
-        return equal(to: anchor, constant: constant, type: .equal, priority: nil)
+        return equal(to: anchor, constant: constant, priority: nil, type: .equal)
     }
     
     @discardableResult
     func greaterOrEqual(to anchor: LPLayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
-        return equal(to: anchor, constant: constant, type: .greater, priority: nil)
+        return equal(to: anchor, constant: constant, priority: nil, type: .greater)
     }
     
     @discardableResult
     func lessOrEqual(to anchor: LPLayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
-        return equal(to: anchor, constant: constant, type: .less, priority: nil)
+        return equal(to: anchor, constant: constant, priority: nil, type: .less)
     }
     
     @discardableResult
     func equal(toConstant: CGFloat, priority: Float? = nil) -> [NSLayoutConstraint] {
-        return equal(to: nil, constant: toConstant, type: .equal, priority: priority)
+        return equal(to: nil, constant: toConstant, priority: priority, type: .equal)
     }
     
     @discardableResult
     func greaterOrEqual(toConstant: CGFloat) -> [NSLayoutConstraint] {
-        return equal(to: nil, constant: toConstant, type: .greater, priority: nil)
+        return equal(to: nil, constant: toConstant, priority: nil, type: .greater)
     }
     
     @discardableResult
     func lessOrEqual(toConstant: CGFloat) -> [NSLayoutConstraint] {
-        return equal(to: nil, constant: toConstant, type: .less, priority: nil)
+        return equal(to: nil, constant: toConstant, priority: nil, type: .less)
     }
     
-    private func equal(to otherAnchor: LPLayoutAnchor?, constant: CGFloat, type: LPConstraintType, priority: Float?) -> [NSLayoutConstraint] {
+    private func equal(to otherAnchor: LPLayoutAnchor?, constant: CGFloat, priority: Float?, type: LPConstraintType) -> [NSLayoutConstraint] {
         let anchor = otherAnchor ?? view.superview
         assert(anchor != nil, "superview is nil.")
         
