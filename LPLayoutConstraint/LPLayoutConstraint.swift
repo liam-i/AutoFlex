@@ -16,6 +16,7 @@ extension UIView: LPLayoutAnchor {}
 extension NSLayoutXAxisAnchor: LPLayoutAnchor {}
 extension NSLayoutYAxisAnchor: LPLayoutAnchor {}
 extension NSLayoutDimension: LPLayoutAnchor {}
+extension CGSize: LPLayoutAnchor {}
 
 public struct LPLayoutConstraint {
     private let view: UIView
@@ -34,12 +35,10 @@ public struct LPLayoutConstraint {
     public var width: NSLayoutDimension { return view.widthAnchor }
     public var height: NSLayoutDimension { return view.heightAnchor }
     public var topSafe: NSLayoutYAxisAnchor {
-        guard #available(iOS 11.0, *) else { return view.topAnchor }
-        return view.safeAreaLayoutGuide.topAnchor
+        guard #available(iOS 11.0, *) else { return view.topAnchor }; return view.safeAreaLayoutGuide.topAnchor
     }
     public var bottomSafe: NSLayoutYAxisAnchor {
-        guard #available(iOS 11.0, *) else { return view.bottomAnchor }
-        return view.safeAreaLayoutGuide.bottomAnchor
+        guard #available(iOS 11.0, *) else { return view.bottomAnchor }; return view.safeAreaLayoutGuide.bottomAnchor
     }
 }
 
@@ -56,6 +55,7 @@ public class LPMarker {
     public var width: LPMarker { return add(.width) }
     public var height: LPMarker { return add(.height) }
     public var edges: LPMarker { return add(.edges) }
+    public var size: LPMarker { return add(.size) }
     
     @discardableResult
     public func equal(to anchor: LPLayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
@@ -96,72 +96,85 @@ public class LPMarker {
         attributes.forEach {
             switch $0 {
             case .top:
-                let toAnchor: NSLayoutYAxisAnchor
+                let toa: NSLayoutYAxisAnchor
                 switch anchor {
-                case let view as UIView: toAnchor = view.topAnchor
-                case let anchor as NSLayoutYAxisAnchor: toAnchor = anchor
+                case let to as UIView: toa = to.topAnchor
+                case let to as NSLayoutYAxisAnchor: toa = to
                 default: fatalError("Only be `UIView` or `NSLayoutYAxisAnchor`")
                 }
-                constraints.append(type.constraint(for: view.topAnchor, to: toAnchor, constant: constant))
+                constraints.append(type.constraint(for: view.topAnchor, to: toa, constant: constant))
             case .bottom:
-                let toAnchor: NSLayoutYAxisAnchor
+                let toa: NSLayoutYAxisAnchor
                 switch anchor {
-                case let view as UIView: toAnchor = view.bottomAnchor
-                case let anchor as NSLayoutYAxisAnchor: toAnchor = anchor
+                case let to as UIView: toa = to.bottomAnchor
+                case let to as NSLayoutYAxisAnchor: toa = to
                 default: fatalError("Only be `UIView` or `NSLayoutYAxisAnchor`")
                 }
-                constraints.append(type.constraint(for: view.bottomAnchor, to: toAnchor, constant: -constant))
+                constraints.append(type.constraint(for: view.bottomAnchor, to: toa, constant: -constant))
             case .leading:
-                let toAnchor: NSLayoutXAxisAnchor
+                let toa: NSLayoutXAxisAnchor
                 switch anchor {
-                case let view as UIView: toAnchor = view.leadingAnchor
-                case let anchor as NSLayoutXAxisAnchor: toAnchor = anchor
+                case let to as UIView: toa = to.leadingAnchor
+                case let to as NSLayoutXAxisAnchor: toa = to
                 default: fatalError("Only be `UIView` or `NSLayoutXAxisAnchor`")
                 }
-                constraints.append(type.constraint(for: view.leadingAnchor, to: toAnchor, constant: constant))
+                constraints.append(type.constraint(for: view.leadingAnchor, to: toa, constant: constant))
             case .trailing:
-                let toAnchor: NSLayoutXAxisAnchor
+                let toa: NSLayoutXAxisAnchor
                 switch anchor {
-                case let view as UIView: toAnchor = view.trailingAnchor
-                case let anchor as NSLayoutXAxisAnchor: toAnchor = anchor
+                case let to as UIView: toa = to.trailingAnchor
+                case let to as NSLayoutXAxisAnchor: toa = to
                 default: fatalError("Only be `UIView` or `NSLayoutXAxisAnchor`")
                 }
-                constraints.append(type.constraint(for: view.trailingAnchor, to: toAnchor, constant: -constant))
+                constraints.append(type.constraint(for: view.trailingAnchor, to: toa, constant: -constant))
             case .centerX:
-                let toAnchor: NSLayoutXAxisAnchor
+                let toa: NSLayoutXAxisAnchor
                 switch anchor {
-                case let view as UIView: toAnchor = view.centerXAnchor
-                case let anchor as NSLayoutXAxisAnchor: toAnchor = anchor
+                case let to as UIView: toa = to.centerXAnchor
+                case let to as NSLayoutXAxisAnchor: toa = to
                 default: fatalError("Only be `UIView` or `NSLayoutXAxisAnchor`")
                 }
-                constraints.append(type.constraint(for: view.centerXAnchor, to: toAnchor, constant: constant))
+                constraints.append(type.constraint(for: view.centerXAnchor, to: toa, constant: constant))
             case .centerY:
-                let toAnchor: NSLayoutYAxisAnchor
+                let toa: NSLayoutYAxisAnchor
                 switch anchor {
-                case let view as UIView: toAnchor = view.centerYAnchor
-                case let anchor as NSLayoutYAxisAnchor: toAnchor = anchor
+                case let to as UIView: toa = to.centerYAnchor
+                case let to as NSLayoutYAxisAnchor: toa = to
                 default: fatalError("Only be `UIView` or `NSLayoutYAxisAnchor`")
                 }
-                constraints.append(type.constraint(for: view.centerYAnchor, to: toAnchor, constant: constant))
+                constraints.append(type.constraint(for: view.centerYAnchor, to: toa, constant: constant))
             case .width:
-                let toAnchor: NSLayoutDimension
+                let toa: NSLayoutDimension
                 switch anchor {
-                case let view as UIView: toAnchor = view.widthAnchor
-                case let anchor as NSLayoutDimension: toAnchor = anchor
+                case let to as UIView: toa = to.widthAnchor
+                case let to as NSLayoutDimension: toa = to
                 default: fatalError("Only be `UIView` or `NSLayoutDimension`")
                 }
-                constraints.append(type.constraint(for: view.widthAnchor, to: otherAnchor == nil ? nil : toAnchor, constant: constant, priority: priority))
+                constraints.append(type.constraint(for: view.widthAnchor, to: otherAnchor == nil ? nil : toa, constant: constant, priority: priority))
             case .height:
-                let toAnchor: NSLayoutDimension
+                let toa: NSLayoutDimension
                 switch anchor {
-                case let view as UIView: toAnchor = view.heightAnchor
-                case let anchor as NSLayoutDimension: toAnchor = anchor
+                case let to as UIView: toa = to.heightAnchor
+                case let to as NSLayoutDimension: toa = to
                 default: fatalError("Only be `UIView` or `NSLayoutDimension`")
                 }
-                constraints.append(type.constraint(for: view.heightAnchor, to: otherAnchor == nil ? nil : toAnchor, constant: constant, priority: priority))
+                constraints.append(type.constraint(for: view.heightAnchor, to: otherAnchor == nil ? nil : toa, constant: constant, priority: priority))
             case .edges:
-                guard let toView = anchor as? UIView else { fatalError("Only be `UIView`") }
-                constraints.append(contentsOf: type.constraintEdge(for: view, to: toView, constant: constant))
+                guard let toa = anchor as? UIView else { fatalError("Only be `UIView`") }
+                constraints.append(type.constraint(for: view.topAnchor, to: toa.topAnchor, constant: constant))
+                constraints.append(type.constraint(for: view.bottomAnchor, to: toa.bottomAnchor, constant: -constant))
+                constraints.append(type.constraint(for: view.leadingAnchor, to: toa.leadingAnchor, constant: constant))
+                constraints.append(type.constraint(for: view.trailingAnchor, to: toa.trailingAnchor, constant: -constant))
+            case .size:
+                var lW: NSLayoutDimension? = nil, lH: NSLayoutDimension? = nil
+                var cW: CGFloat = constant, cH: CGFloat = constant
+                switch anchor {
+                case let to as UIView: if otherAnchor != nil { lW = to.widthAnchor; lH = to.heightAnchor }
+                case let to as CGSize: cW = to.width; cH = to.height
+                case let to as NSLayoutDimension: lW = to; lH = to
+                default: fatalError("Only be `UIView` or `CGSize` or `NSLayoutDimension`") }
+                constraints.append(type.constraint(for: view.widthAnchor, to: lW, constant: cW, priority: priority))
+                constraints.append(type.constraint(for: view.heightAnchor, to: lH, constant: cH, priority: priority))
             }
         }
         attributes.removeAll()
@@ -210,12 +223,15 @@ public class LPMarker {
                 update(with: .bottom, constant: -constant)
                 update(with: .leading, constant: constant)
                 update(with: .trailing, constant: -constant)
+            case .size:
+                update(with: .width, constant: constant)
+                update(with: .height, constant: constant)
             }
         }
         attributes.removeAll()
     }
     
-    private enum LPAttributes { case top, bottom, leading, trailing, centerX, centerY, width, height, edges }
+    private enum LPAttributes { case top, bottom, leading, trailing, centerX, centerY, width, height, edges, size }
     private var attributes = Set<LPAttributes>()
     private func add(_ attr: LPAttributes) -> Self { attributes.insert(attr); return self }
 }
@@ -257,26 +273,6 @@ private enum LPConstraintType {
             case .greater: return anchor.constraint(greaterThanOrEqualToConstant: constant)
             case .less:    return anchor.constraint(lessThanOrEqualToConstant: constant)
             }
-        }
-    }
-    
-    func constraintEdge(for view: UIView, to other: UIView, constant: CGFloat) -> [NSLayoutConstraint] {
-        switch self {
-        case .equal:
-            return [view.topAnchor.constraint(equalTo: other.topAnchor, constant: constant),
-                    view.bottomAnchor.constraint(equalTo: other.bottomAnchor, constant: -constant),
-                    view.leadingAnchor.constraint(equalTo: other.leadingAnchor, constant: constant),
-                    view.trailingAnchor.constraint(equalTo: other.trailingAnchor, constant: -constant)]
-        case .greater:
-            return [view.topAnchor.constraint(greaterThanOrEqualTo: other.topAnchor, constant: constant),
-                    view.bottomAnchor.constraint(greaterThanOrEqualTo: other.bottomAnchor, constant: -constant),
-                    view.leadingAnchor.constraint(greaterThanOrEqualTo: other.leadingAnchor, constant: constant),
-                    view.trailingAnchor.constraint(greaterThanOrEqualTo: other.trailingAnchor, constant: -constant)]
-        case .less:
-            return [view.topAnchor.constraint(lessThanOrEqualTo: other.topAnchor, constant: constant),
-                    view.bottomAnchor.constraint(lessThanOrEqualTo: other.bottomAnchor, constant: -constant),
-                    view.leadingAnchor.constraint(lessThanOrEqualTo: other.leadingAnchor, constant: constant),
-                    view.trailingAnchor.constraint(lessThanOrEqualTo: other.trailingAnchor, constant: -constant)]
         }
     }
 }
