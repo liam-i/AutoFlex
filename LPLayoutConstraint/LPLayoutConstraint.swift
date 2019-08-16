@@ -23,7 +23,10 @@ public struct LPLayoutConstraint {
     init(_ view: UIView) { self.view = view }
     
     public func constraints(_ closure: (LPMarker) -> Void) {
-        closure(LPMarker(view))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let marker = LPMarker(view)
+        closure(marker)
+        if marker.allConstraints.count > 0 { NSLayoutConstraint.activate(marker.allConstraints) }
     }
     
     public var top: NSLayoutYAxisAnchor { return view.topAnchor }
@@ -90,8 +93,6 @@ public class LPMarker {
     private func equal(to otherAnchor: LPLayoutAnchor?, constant: CGFloat, priority: Float?, type: LPConstraintType) -> [NSLayoutConstraint] {
         let anchor = otherAnchor ?? view.superview
         assert(anchor != nil, "superview is nil.")
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
         var constraints: [NSLayoutConstraint] = []
         attributes.forEach {
             switch $0 {
@@ -178,7 +179,7 @@ public class LPMarker {
             }
         }
         attributes.removeAll()
-        NSLayoutConstraint.activate(constraints)
+        allConstraints.append(contentsOf: constraints)
         return constraints
     }
     
@@ -234,6 +235,7 @@ public class LPMarker {
     private enum LPAttributes { case top, bottom, leading, trailing, centerX, centerY, width, height, edges, size }
     private var attributes = Set<LPAttributes>()
     private func add(_ attr: LPAttributes) -> Self { attributes.insert(attr); return self }
+    fileprivate var allConstraints: [NSLayoutConstraint] = []
 }
 
 private enum LPConstraintType {
