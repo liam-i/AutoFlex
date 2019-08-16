@@ -93,6 +93,7 @@ public class LPMarker {
     private func equal(to otherAnchor: LPLayoutAnchor?, constant: CGFloat, priority: Float?, type: LPConstraintType) -> [NSLayoutConstraint] {
         let anchor = otherAnchor ?? view.superview
         assert(anchor != nil, "superview is nil.")
+        assert(attributes.count > 0, "ambiguous constraints.")
         var constraints: [NSLayoutConstraint] = []
         attributes.forEach {
             switch $0 {
@@ -184,6 +185,7 @@ public class LPMarker {
     }
     
     public func update(constant: CGFloat) {
+        assert(attributes.count > 0, "ambiguous constraints.")
         guard let superview = view.superview else { return assert(false, "superview is nil.") }
         func update(with attr: NSLayoutConstraint.Attribute, constant: CGFloat) {
             let block: (NSLayoutConstraint) -> Bool = {
