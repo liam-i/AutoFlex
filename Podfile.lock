@@ -1,0 +1,16 @@
+PODS:
+  - AutoLayout (0.1.0)
+
+DEPENDENCIES:
+  - AutoLayout (from `./`)
+
+EXTERNAL SOURCES:
+  AutoLayout:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  AutoLayout: b42e3e983e2c702d0f1fa847f4eb53960c16ce32
+
+PODFILE CHECKSUM: 49ee7a96aee596de8b3048a2d4553b89b62a1d0d
+
+COCOAPODS: 1.11.2

@@ -2,35 +2,28 @@
 //  ViewController.swift
 //  AutoLayout
 //
-//  Created by pengli on 2019/8/6.
-//  Copyright © 2019 pengli. All rights reserved.
+//  Created by Liam on 12/03/2021.
+//  Copyright (c) 2021 Liam. All rights reserved.
 //
 
 import UIKit
+import AutoLayout
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let v = UILabel()
         v.text = "AutoLayout"
         v.numberOfLines = 0
         v.backgroundColor = UIColor.red
         view.addSubview(v)
-        
+
         v.lp.constraints {
             $0.top.equal(to: view.lp.safeLayout.topAnchor)
             $0.leading.equal(toConstant: 5)
-            //$0.trailing.lessOrEqual(toConstant: 5)
-            
-//            $0.size.equal(toConstant: 50)
             $0.size.equal(to: CGSize(width: 40, height: 80))
         }
-        
-//        v.lp.constraints {
-//            $0.top.update(constant: 100)
-//            $0.size.update(constant: 300)
-//        }
     }
 }
