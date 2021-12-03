@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  LPLayoutConstraint
+//  AutoLayout
 //
 //  Created by pengli on 2019/8/6.
 //  Copyright © 2019 pengli. All rights reserved.
@@ -14,13 +14,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let v = UILabel()
-        v.text = "LPLayoutConstraint"
+        v.text = "AutoLayout"
         v.numberOfLines = 0
         v.backgroundColor = UIColor.red
         view.addSubview(v)
         
         v.lp.constraints {
-            $0.top.equal(to: view.lp.topSafe)
+            $0.top.equal(to: view.lp.safeLayout.topAnchor)
             $0.leading.equal(toConstant: 5)
             //$0.trailing.lessOrEqual(toConstant: 5)
             
@@ -28,9 +28,9 @@ class ViewController: UIViewController {
             $0.size.equal(to: CGSize(width: 40, height: 80))
         }
         
-        v.lp.constraints {
-            $0.top.update(constant: 100)
-            $0.size.update(constant: 300)
-        }
+//        v.lp.constraints {
+//            $0.top.update(constant: 100)
+//            $0.size.update(constant: 300)
+//        }
     }
 }

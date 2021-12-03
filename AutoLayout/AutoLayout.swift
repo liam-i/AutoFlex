@@ -1,99 +1,109 @@
 //
-//  LPLayoutConstraint.swift
-//  LPLayoutConstraint
+//  LayoutConstraint.swift
+//  LayoutConstraint
 //
-//  Created by pengli on 2019/8/6.
-//  Copyright © 2019 pengli. All rights reserved.
+//  Created by Liam on 2019/8/6.
+//  Copyright © 2019 Liam. All rights reserved.
 //
 
 import UIKit
 
 extension UIView {
-    public var lp: LPLayoutConstraint { return LPLayoutConstraint(self) }
+    public var lp: LayoutConstraint { LayoutConstraint(self) }
 }
-public protocol LPLayoutAnchor {}
-extension UIView: LPLayoutAnchor {}
-extension NSLayoutXAxisAnchor: LPLayoutAnchor {}
-extension NSLayoutYAxisAnchor: LPLayoutAnchor {}
-extension NSLayoutDimension: LPLayoutAnchor {}
-extension CGSize: LPLayoutAnchor {}
 
-public struct LPLayoutConstraint {
+public protocol LayoutAnchor {}
+
+extension UIView: LayoutAnchor {}
+extension NSLayoutXAxisAnchor: LayoutAnchor {}
+extension NSLayoutYAxisAnchor: LayoutAnchor {}
+extension NSLayoutDimension: LayoutAnchor {}
+extension CGSize: LayoutAnchor {}
+
+public struct LayoutConstraint {
     private let view: UIView
-    init(_ view: UIView) { self.view = view }
-    
-    public func constraints(_ closure: (LPMarker) -> Void) {
+
+    public init(_ view: UIView) {
+        self.view = view
+    }
+
+    public func constraints(_ closure: (Marker) -> Void) {
         view.translatesAutoresizingMaskIntoConstraints = false
-        let marker = LPMarker(view)
+
+        let marker = Marker(view)
         closure(marker)
-        if marker.allConstraints.count > 0 { NSLayoutConstraint.activate(marker.allConstraints) }
+        marker.activate()
     }
-    
-    public var top: NSLayoutYAxisAnchor { return view.topAnchor }
-    public var bottom: NSLayoutYAxisAnchor { return view.bottomAnchor }
-    public var leading: NSLayoutXAxisAnchor { return view.leadingAnchor }
-    public var trailing: NSLayoutXAxisAnchor { return view.trailingAnchor }
-    public var centerX: NSLayoutXAxisAnchor { return view.centerXAnchor }
-    public var centerY: NSLayoutYAxisAnchor { return view.centerYAnchor }
-    public var width: NSLayoutDimension { return view.widthAnchor }
-    public var height: NSLayoutDimension { return view.heightAnchor }
-    public var topSafe: NSLayoutYAxisAnchor {
-        guard #available(iOS 11.0, *) else { return view.topAnchor }; return view.safeAreaLayoutGuide.topAnchor
-    }
-    public var bottomSafe: NSLayoutYAxisAnchor {
-        guard #available(iOS 11.0, *) else { return view.bottomAnchor }; return view.safeAreaLayoutGuide.bottomAnchor
+
+    public var top: NSLayoutYAxisAnchor { view.topAnchor }
+    public var bottom: NSLayoutYAxisAnchor { view.bottomAnchor }
+    public var leading: NSLayoutXAxisAnchor { view.leadingAnchor }
+    public var trailing: NSLayoutXAxisAnchor { view.trailingAnchor }
+    public var centerX: NSLayoutXAxisAnchor { view.centerXAnchor }
+    public var centerY: NSLayoutYAxisAnchor { view.centerYAnchor }
+    public var width: NSLayoutDimension { view.widthAnchor }
+    public var height: NSLayoutDimension { view.heightAnchor }
+
+    public var safeLayout: UILayoutGuide {
+        guard #available(iOS 11.0, *) else { return view.layoutMarginsGuide }
+        return view.safeAreaLayoutGuide
     }
 }
 
-public class LPMarker {
-    let view: UIView
-    init(_ view: UIView) { self.view = view }
-    
-    public var top: LPMarker { return add(.top) }
-    public var bottom: LPMarker { return add(.bottom) }
-    public var leading: LPMarker { return add(.leading) }
-    public var trailing: LPMarker { return add(.trailing) }
-    public var centerX: LPMarker { return add(.centerX) }
-    public var centerY: LPMarker { return add(.centerY) }
-    public var width: LPMarker { return add(.width) }
-    public var height: LPMarker { return add(.height) }
-    public var edges: LPMarker { return add(.edges) }
-    public var size: LPMarker { return add(.size) }
-    
-    @discardableResult
-    public func equal(to anchor: LPLayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
-        return equal(to: anchor, constant: constant, priority: nil, type: .equal)
+public class Marker {
+    public let view: UIView
+
+    public init(_ view: UIView) {
+        self.view = view
     }
-    
+
+    public var top: Marker { add(.top) }
+    public var bottom: Marker { add(.bottom) }
+    public var leading: Marker { add(.leading) }
+    public var trailing: Marker { add(.trailing) }
+    public var centerX: Marker { add(.centerX) }
+    public var centerY: Marker { add(.centerY) }
+    public var width: Marker { add(.width) }
+    public var height: Marker { add(.height) }
+    public var edges: Marker { add(.edges) }
+    public var size: Marker { add(.size) }
+
     @discardableResult
-    public func greaterOrEqual(to anchor: LPLayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
-        return equal(to: anchor, constant: constant, priority: nil, type: .greater)
+    public func equal(to anchor: LayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
+        equal(to: anchor, constant: constant, priority: nil, type: .equal)
     }
-    
+
     @discardableResult
-    public func lessOrEqual(to anchor: LPLayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
-        return equal(to: anchor, constant: constant, priority: nil, type: .less)
+    public func greaterOrEqual(to anchor: LayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
+        equal(to: anchor, constant: constant, priority: nil, type: .greater)
     }
-    
+
+    @discardableResult
+    public func lessOrEqual(to anchor: LayoutAnchor, constant: CGFloat = 0) -> [NSLayoutConstraint] {
+        equal(to: anchor, constant: constant, priority: nil, type: .less)
+    }
+
     @discardableResult
     public func equal(toConstant: CGFloat, priority: Float? = nil) -> [NSLayoutConstraint] {
-        return equal(to: nil, constant: toConstant, priority: priority, type: .equal)
+        equal(to: nil, constant: toConstant, priority: priority, type: .equal)
     }
-    
+
     @discardableResult
     public func greaterOrEqual(toConstant: CGFloat) -> [NSLayoutConstraint] {
-        return equal(to: nil, constant: toConstant, priority: nil, type: .greater)
+        equal(to: nil, constant: toConstant, priority: nil, type: .greater)
     }
-    
+
     @discardableResult
     public func lessOrEqual(toConstant: CGFloat) -> [NSLayoutConstraint] {
-        return equal(to: nil, constant: toConstant, priority: nil, type: .less)
+        equal(to: nil, constant: toConstant, priority: nil, type: .less)
     }
-    
-    private func equal(to otherAnchor: LPLayoutAnchor?, constant: CGFloat, priority: Float?, type: LPConstraintType) -> [NSLayoutConstraint] {
+
+    private func equal(to otherAnchor: LayoutAnchor?, constant: CGFloat, priority: Float?, type: ConstraintType) -> [NSLayoutConstraint] {
         let anchor = otherAnchor ?? view.superview
+
         assert(anchor != nil, "superview is nil.")
-        assert(attributes.count > 0, "ambiguous constraints.")
+        assert(attributes.isEmpty == false, "ambiguous constraints.")
+
         var constraints: [NSLayoutConstraint] = []
         attributes.forEach {
             switch $0 {
@@ -179,70 +189,84 @@ public class LPMarker {
                 constraints.append(type.constraint(for: view.heightAnchor, to: lH, constant: cH, priority: priority))
             }
         }
+
         attributes.removeAll()
         allConstraints.append(contentsOf: constraints)
         return constraints
     }
-    
-    public func update(constant: CGFloat) {
-        assert(attributes.count > 0, "ambiguous constraints.")
-        guard let superview = view.superview else { return assert(false, "superview is nil.") }
-        func update(with attr: NSLayoutConstraint.Attribute, constant: CGFloat) {
-            let block: (NSLayoutConstraint) -> Bool = {
-                if $0.firstAttribute == attr {
-                    if let first = $0.firstItem as? UIView, first == self.view { return true }
-                    if let second = $0.secondItem as? UIView, second == self.view { return true }
-                }
-                return false
-            }
-            if let index = view.constraints.firstIndex(where: block) {
-                view.constraints[index].constant = constant
-            } else if let index = superview.constraints.firstIndex(where: block) {
-                superview.constraints[index].constant = constant
-            } else {
-                assert(false, "constraint(\(attr.rawValue)) not found.")
-            }
-        }
-        attributes.forEach {
-            switch $0 {
-            case .top:
-                update(with: .top, constant: constant)
-            case .bottom:
-                update(with: .bottom, constant: -constant)
-            case .leading:
-                update(with: .leading, constant: constant)
-            case .trailing:
-                update(with: .trailing, constant: -constant)
-            case .centerX:
-                update(with: .centerX, constant: constant)
-            case .centerY:
-                update(with: .centerY, constant: constant)
-            case .width:
-                update(with: .width, constant: constant)
-            case .height:
-                update(with: .height, constant: constant)
-            case .edges:
-                update(with: .top, constant: constant)
-                update(with: .bottom, constant: -constant)
-                update(with: .leading, constant: constant)
-                update(with: .trailing, constant: -constant)
-            case .size:
-                update(with: .width, constant: constant)
-                update(with: .height, constant: constant)
-            }
-        }
-        attributes.removeAll()
+
+//    public func update(constant: CGFloat) {
+//        assert(attributes.isEmpty == false, "ambiguous constraints.")
+//
+//        guard let superview = view.superview else { return assert(false, "superview is nil.") }
+//
+//        func update(with attr: NSLayoutConstraint.Attribute, constant: CGFloat) {
+//            let block: (NSLayoutConstraint) -> Bool = {
+//                if $0.firstAttribute == attr {
+//                    if let first = $0.firstItem as? UIView, first == self.view { return true }
+//                    if let second = $0.secondItem as? UIView, second == self.view { return true }
+//                }
+//                return false
+//            }
+//
+//            if let index = view.constraints.firstIndex(where: block) {
+//                view.constraints[index].constant = constant
+//            } else if let index = superview.constraints.firstIndex(where: block) {
+//                superview.constraints[index].constant = constant
+//            } else {
+//                assert(false, "constraint(\(attr.rawValue)) not found.")
+//            }
+//        }
+//
+//        attributes.forEach {
+//            switch $0 {
+//            case .top:
+//                update(with: .top, constant: constant)
+//            case .bottom:
+//                update(with: .bottom, constant: -constant)
+//            case .leading:
+//                update(with: .leading, constant: constant)
+//            case .trailing:
+//                update(with: .trailing, constant: -constant)
+//            case .centerX:
+//                update(with: .centerX, constant: constant)
+//            case .centerY:
+//                update(with: .centerY, constant: constant)
+//            case .width:
+//                update(with: .width, constant: constant)
+//            case .height:
+//                update(with: .height, constant: constant)
+//            case .edges:
+//                update(with: .top, constant: constant)
+//                update(with: .bottom, constant: -constant)
+//                update(with: .leading, constant: constant)
+//                update(with: .trailing, constant: -constant)
+//            case .size:
+//                update(with: .width, constant: constant)
+//                update(with: .height, constant: constant)
+//            }
+//        }
+//        attributes.removeAll()
+//    }
+
+    fileprivate func activate() {
+        assert(allConstraints.isEmpty == false)
+        NSLayoutConstraint.activate(allConstraints)
     }
-    
-    private enum LPAttributes { case top, bottom, leading, trailing, centerX, centerY, width, height, edges, size }
-    private var attributes = Set<LPAttributes>()
-    private func add(_ attr: LPAttributes) -> Self { attributes.insert(attr); return self }
-    fileprivate var allConstraints: [NSLayoutConstraint] = []
+
+    private func add(_ attr: Attributes) -> Self {
+        attributes.insert(attr)
+        return self
+    }
+
+    private enum Attributes { case top, bottom, leading, trailing, centerX, centerY, width, height, edges, size }
+    private var attributes = Set<Attributes>()
+    private var allConstraints: [NSLayoutConstraint] = []
 }
 
-private enum LPConstraintType {
+private enum ConstraintType {
     case equal, greater, less
-    
+
     func constraint(for anchor: NSLayoutYAxisAnchor, to other: NSLayoutYAxisAnchor, constant: CGFloat) -> NSLayoutConstraint {
         switch self {
         case .equal:   return anchor.constraint(equalTo: other, constant: constant)
@@ -250,7 +274,7 @@ private enum LPConstraintType {
         case .less:    return anchor.constraint(lessThanOrEqualTo: other, constant: constant)
         }
     }
-    
+
     func constraint(for anchor: NSLayoutXAxisAnchor, to other: NSLayoutXAxisAnchor, constant: CGFloat) -> NSLayoutConstraint {
         switch self {
         case .equal:   return anchor.constraint(equalTo: other, constant: constant)
@@ -258,7 +282,7 @@ private enum LPConstraintType {
         case .less:    return anchor.constraint(lessThanOrEqualTo: other, constant: constant)
         }
     }
-    
+
     func constraint(for anchor: NSLayoutDimension, to other: NSLayoutDimension?, constant: CGFloat, priority: Float?) -> NSLayoutConstraint {
         if let other = other {
             switch self {
