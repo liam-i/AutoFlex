@@ -14,7 +14,7 @@ use_frameworks! :linkage => :static
 #workspace 'AutoLayout.xcworkspace'
 
 target 'AutoLayout_Example' do
-  pod 'AutoLayout', :path => './'
+  pod 'LPAutoLayout', :path => './'
 
   target 'AutoLayout_Tests' do
     inherit! :search_paths

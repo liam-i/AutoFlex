@@ -32,7 +32,7 @@
 		1828E0952643B700004E75A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		210A89627DE51BA737C4D4B1 /* Pods-AutoLayout_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayout_Tests.release.xcconfig"; path = "Target Support Files/Pods-AutoLayout_Tests/Pods-AutoLayout_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		292FBE11F202BA7E5C309B55 /* Pods-AutoLayout_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayout_Example.release.xcconfig"; path = "Target Support Files/Pods-AutoLayout_Example/Pods-AutoLayout_Example.release.xcconfig"; sourceTree = "<group>"; };
-		41DD62B3F90847A32460B4C8 /* install-pod.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; name = "install-pod.sh"; path = "./install-pod.sh"; sourceTree = "<group>"; };
+		41DD62B3F90847A32460B4C8 /* install-pods.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "install-pods.sh"; sourceTree = "<group>"; };
 		4F4AC70AF585669470D296F9 /* Pods-AutoLayout_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayout_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AutoLayout_Tests/Pods-AutoLayout_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AutoLayout_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayout_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,12 +43,12 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		79AEB22C9A7BEA29F7649798 /* push-git.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; name = "push-git.sh"; path = "./push-git.sh"; sourceTree = "<group>"; };
-		7E4D6288E4FB8FAB47EC2384 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ./LICENSE; sourceTree = "<group>"; };
+		7E4D6288E4FB8FAB47EC2384 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ./LICENSE; sourceTree = "<group>"; };
 		B514F2D50AF6E5E7826BFEBC /* Pods_AutoLayout_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoLayout_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BBA5C86D679C3C8AF3CA9E0F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ./README.md; sourceTree = "<group>"; };
-		C74A81257DFE3AACA5A6ED60 /* AutoLayout.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = AutoLayout.podspec; path = ./AutoLayout.podspec; sourceTree = "<group>"; };
+		BBA5C86D679C3C8AF3CA9E0F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ./README.md; sourceTree = "<group>"; };
+		C74A81257DFE3AACA5A6ED60 /* LPAutoLayout.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LPAutoLayout.podspec; sourceTree = "<group>"; };
 		C90C2E9E987A178FF0FBAEAF /* Pods_AutoLayout_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoLayout_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9C9972D4643CE5A0D1BDB81 /* update-pod.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; name = "update-pod.sh"; path = "./update-pod.sh"; sourceTree = "<group>"; };
+		D9C9972D4643CE5A0D1BDB81 /* update-pods.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "update-pods.sh"; sourceTree = "<group>"; };
 		E603E0601501790B20387CB5 /* Pods-AutoLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayout_Example.debug.xcconfig"; path = "Target Support Files/Pods-AutoLayout_Example/Pods-AutoLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E8B165D5269DECA200B80E02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +81,6 @@
 				4F4AC70AF585669470D296F9 /* Pods-AutoLayout_Tests.debug.xcconfig */,
 				210A89627DE51BA737C4D4B1 /* Pods-AutoLayout_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -132,13 +131,13 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				C74A81257DFE3AACA5A6ED60 /* AutoLayout.podspec */,
+				C74A81257DFE3AACA5A6ED60 /* LPAutoLayout.podspec */,
 				BBA5C86D679C3C8AF3CA9E0F /* README.md */,
 				7E4D6288E4FB8FAB47EC2384 /* LICENSE */,
 				0904875047407FAF3406E38A /* build.sh */,
 				79AEB22C9A7BEA29F7649798 /* push-git.sh */,
-				41DD62B3F90847A32460B4C8 /* install-pod.sh */,
-				D9C9972D4643CE5A0D1BDB81 /* update-pod.sh */,
+				41DD62B3F90847A32460B4C8 /* install-pods.sh */,
+				D9C9972D4643CE5A0D1BDB81 /* update-pods.sh */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";

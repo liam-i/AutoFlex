@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'AutoLayout'
-  s.version          = '0.1.1'
+  s.name             = 'LPAutoLayout'
+  s.version          = '0.1.2'
   s.summary          = 'Auto layout framework.'
 
   s.description      = <<-DESC
