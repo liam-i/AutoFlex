@@ -8,29 +8,21 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AutoLayout'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of AutoLayout.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.version          = '0.1.1'
+  s.summary          = 'Auto layout framework.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+                        An auto layout framework.
                        DESC
 
-  s.homepage         = 'https://github.com/Liam/AutoLayout'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/liam-i/AutoLayout'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Liam' => 'liam_i@163.com' }
-  s.source           = { :git => 'https://github.com/Liam/AutoLayout.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/liam-i/AutoLayout.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
 
-  s.swift_versions = ['5.0']
+  s.swift_versions = ['5.1', '5.2', '5.3']
 
   s.source_files = 'Sources/Classes/**/*'
 

@@ -1,5 +1,5 @@
 PODS:
-  - AutoLayout (0.1.0)
+  - AutoLayout (0.1.1)
 
 DEPENDENCIES:
   - AutoLayout (from `./`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  AutoLayout: b42e3e983e2c702d0f1fa847f4eb53960c16ce32
+  AutoLayout: 9c5599e68e5304c40665779ef987cc994c007cfa
 
 PODFILE CHECKSUM: 49ee7a96aee596de8b3048a2d4553b89b62a1d0d
 
