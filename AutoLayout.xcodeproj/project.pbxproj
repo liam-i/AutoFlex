@@ -46,7 +46,7 @@
 		7E4D6288E4FB8FAB47EC2384 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ./LICENSE; sourceTree = "<group>"; };
 		B514F2D50AF6E5E7826BFEBC /* Pods_AutoLayout_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoLayout_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA5C86D679C3C8AF3CA9E0F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ./README.md; sourceTree = "<group>"; };
-		C74A81257DFE3AACA5A6ED60 /* LPAutoLayout.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LPAutoLayout.podspec; sourceTree = "<group>"; };
+		C74A81257DFE3AACA5A6ED60 /* LPAutoLayout.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LPAutoLayout.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C90C2E9E987A178FF0FBAEAF /* Pods_AutoLayout_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoLayout_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C9972D4643CE5A0D1BDB81 /* update-pods.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "update-pods.sh"; sourceTree = "<group>"; };
 		E603E0601501790B20387CB5 /* Pods-AutoLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayout_Example.debug.xcconfig"; path = "Target Support Files/Pods-AutoLayout_Example/Pods-AutoLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };

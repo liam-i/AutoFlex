@@ -1,6 +1,6 @@
 //
-//  LayoutConstraint.swift
-//  LayoutConstraint
+//  AutoLayout.swift
+//  AutoLayout
 //
 //  Created by Liam on 2019/8/6.
 //  Copyright © 2019 Liam. All rights reserved.
@@ -8,9 +8,16 @@
 
 import UIKit
 
-extension UIView {
-    public var lp: LayoutConstraint { LayoutConstraint(self) }
+public protocol AutoLayoutCompatible {
+    associatedtype CompatibleAutoLayout
+    var lp: CompatibleAutoLayout { get }
 }
+
+extension AutoLayoutCompatible {
+    public var lp: AutoLayout<Self> { AutoLayout(self) }
+}
+
+extension UIView: AutoLayoutCompatible {}
 
 public protocol LayoutAnchor {}
 
@@ -21,14 +28,16 @@ extension NSLayoutDimension: LayoutAnchor {}
 extension UILayoutGuide: LayoutAnchor {}
 extension CGSize: LayoutAnchor {}
 
-public struct LayoutConstraint {
-    private let view: UIView
+public struct AutoLayout<ViewType> {
+    private let view: ViewType
 
-    public init(_ view: UIView) {
+    public init(_ view: ViewType) {
         self.view = view
     }
+}
 
-    public func constraints(_ closure: (Marker) -> Void) {
+extension AutoLayout where ViewType: UIView {
+    public func constraints(_ closure: (Marker<ViewType>) -> Void) {
         view.translatesAutoresizingMaskIntoConstraints = false
 
         let marker = Marker(view)
@@ -51,13 +60,19 @@ public struct LayoutConstraint {
     }
 }
 
-public class Marker {
-    public let view: UIView
+public class Marker<ViewType> {
+    public let view: ViewType
 
-    public init(_ view: UIView) {
+    public init(_ view: ViewType) {
         self.view = view
     }
 
+    private enum Attributes { case top, bottom, leading, trailing, centerX, centerY, center, width, height, edges, size }
+    private var attributes = Set<Attributes>()
+    private var allConstraints: [NSLayoutConstraint] = []
+}
+
+extension Marker where ViewType: UIView {
     public var top: Marker { add(.top) }
     public var bottom: Marker { add(.bottom) }
     public var leading: Marker { add(.leading) }
@@ -265,10 +280,6 @@ public class Marker {
         attributes.insert(attr)
         return self
     }
-
-    private enum Attributes { case top, bottom, leading, trailing, centerX, centerY, center, width, height, edges, size }
-    private var attributes = Set<Attributes>()
-    private var allConstraints: [NSLayoutConstraint] = []
 }
 
 private enum ConstraintType {
