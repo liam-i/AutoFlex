@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AutoLayout
+import LPAutoLayout
 
 class ViewController: UIViewController {
 
@@ -17,13 +17,18 @@ class ViewController: UIViewController {
         let v = UILabel()
         v.text = "AutoLayout"
         v.numberOfLines = 0
-        v.backgroundColor = UIColor.red
+        v.layer.borderWidth = 2
+        v.layer.borderColor = UIColor.red.cgColor
         view.addSubview(v)
 
         v.lp.constraints {
-            $0.top.equal(to: view.lp.safeLayout.topAnchor)
+            $0.top.equal(to: view.lp.safeLayout)
             $0.leading.equal(toConstant: 5)
             $0.size.equal(to: CGSize(width: 40, height: 80))
+
+//            $0.center.equal(to: view, constant: 100)
+
+//            $0.edges.equal(to: view.lp.safeLayout)
         }
     }
 }
