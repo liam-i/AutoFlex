@@ -27,7 +27,6 @@ class ViewController: UIViewController {
             $0.size.equal(to: CGSize(width: 40, height: 80))
 
 //            $0.center.equal(to: view, constant: 100)
-
 //            $0.edges.equal(to: view.lp.safeLayout)
         }
     }
