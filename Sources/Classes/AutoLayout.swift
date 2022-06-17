@@ -10,6 +10,7 @@ import UIKit
 
 public protocol AutoLayoutCompatible {
     associatedtype CompatibleAutoLayout
+
     var lp: CompatibleAutoLayout { get }
 }
 
