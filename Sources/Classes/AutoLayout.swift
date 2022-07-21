@@ -85,10 +85,10 @@ extension UILayoutPriority: LayoutPriority {
 }
 
 extension LayoutPriority where Self == Float {
-    public static var priorityRequired: Float { 1000.0 }
-    public static var priorityHigh: Float { 750.0 }
-    public static var priorityMedium: Float { 500.0 }
-    public static var priorityLow: Float { 250.0 }
+    public static var required: Float { 1000.0 }
+    public static var high: Float { 750.0 }
+    public static var medium: Float { 500.0 }
+    public static var low: Float { 250.0 }
 }
 
 extension NSLayoutConstraint {
