@@ -1,5 +1,5 @@
 PODS:
-  - LPAutoLayout (0.1.4)
+  - LPAutoLayout (0.1.5)
 
 DEPENDENCIES:
   - LPAutoLayout (from `./`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  LPAutoLayout: 15d17edd10d790fd2b3f1ff2213cee35dc595360
+  LPAutoLayout: d8044761286bf6b6c3755e98dbb067d54d51e82a
 
 PODFILE CHECKSUM: 2a97e61a158bcab0c5a486e7be788001a8e9ddda
 
