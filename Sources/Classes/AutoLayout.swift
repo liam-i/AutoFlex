@@ -69,32 +69,27 @@ public enum LayoutOptions {
     case constant(CGFloat)
     /// 只对`NSLayoutDimension(widthAnchor/heightAnchor)`生效
     case multiplier(CGFloat)
-    case priority(LayoutPriority)
+    case priority(UILayoutPriority)
 }
 
-public protocol LayoutPriority {
-    var asPriority: UILayoutPriority { get }
-}
+/// 将 Integer 和 Float 的字面量自动转为 UILayoutPriority 类型
+extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
+    public typealias FloatLiteralType = Float
+    public typealias IntegerLiteralType = Int
 
-extension Float: LayoutPriority {
-    public var asPriority: UILayoutPriority { UILayoutPriority(rawValue: self) }
-}
+    public init(floatLiteral value: Float) {
+        self.init(rawValue: value)
+    }
 
-extension UILayoutPriority: LayoutPriority {
-    public var asPriority: UILayoutPriority { self }
-}
-
-extension LayoutPriority where Self == Float {
-    public static var required: Float { 1000.0 }
-    public static var high: Float { 750.0 }
-    public static var medium: Float { 500.0 }
-    public static var low: Float { 250.0 }
+    public init(integerLiteral value: Int) {
+        self.init(rawValue: Float(value))
+    }
 }
 
 extension NSLayoutConstraint {
     /// Returns a value that is offset the specified distance from this value.
-    public func advancedPriority(by n: Float) -> Float {
-        priority.rawValue + n
+    public func advancedPriority(by n: Float) -> UILayoutPriority {
+        UILayoutPriority(rawValue: priority.rawValue + n)
     }
 }
 
@@ -409,7 +404,7 @@ private enum ConstraintType {
 private struct LayoutOptionsInfo {
     private(set) var constant: CGFloat = 0.0
     private(set) var multiplier: CGFloat = 1.0
-    private(set) var priority: LayoutPriority?
+    private(set) var priority: UILayoutPriority?
 
     init(constant: CGFloat) {
         self.constant = constant
@@ -431,7 +426,7 @@ private struct LayoutOptionsInfo {
 
     func withPriority(_ populator: (UILayoutPriority) -> Void) {
         guard let priority = priority else { return }
-        populator(priority.asPriority)
+        populator(priority)
     }
 
     var negated: LayoutOptionsInfo {
