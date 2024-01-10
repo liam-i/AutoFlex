@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Liam' => 'liam_i@163.com' }
   s.source           = { :git => 'https://github.com/liam-i/AutoLayout.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
 
   s.swift_versions = ['5.1', '5.2', '5.3']
 
