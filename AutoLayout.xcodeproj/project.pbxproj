@@ -46,6 +46,7 @@
 		C74A81257DFE3AACA5A6ED60 /* LPAutoLayout.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LPAutoLayout.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C90C2E9E987A178FF0FBAEAF /* Pods_AutoLayout_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoLayout_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E603E0601501790B20387CB5 /* Pods-AutoLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayout_Example.debug.xcconfig"; path = "Target Support Files/Pods-AutoLayout_Example/Pods-AutoLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E829E9E62B4EEB3700D85F4B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E8B165D5269DECA200B80E02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +128,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				E829E9E62B4EEB3700D85F4B /* Package.swift */,
 				C74A81257DFE3AACA5A6ED60 /* LPAutoLayout.podspec */,
 				BBA5C86D679C3C8AF3CA9E0F /* README.md */,
 				7E4D6288E4FB8FAB47EC2384 /* LICENSE */,
