@@ -11,6 +11,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+* iOS 11.0+ 
+* Xcode 14.0+
+* Swift 5.0+
+
 ## Installation
 
 #### Swift Package Manager
@@ -20,6 +24,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 - Select "Up to Next Minor" with "0.2.2"
 
 #### CocoaPods
+
+AutoLayout is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
