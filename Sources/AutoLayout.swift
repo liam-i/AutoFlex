@@ -185,7 +185,7 @@ extension LayoutMarker where ViewType: UIView {
     }
 
     private func equal(to anchor: LayoutAnchor?, options: LayoutOptionsInfo, type: ConstraintType) -> [NSLayoutConstraint] {
-        assert(view.superview != nil, "superview is nil.")
+        //assert(view.superview != nil, "superview is nil.")
         assert(attributes.isEmpty == false, "ambiguous constraints.")
 
         let constraints = attributes.reduce(into: [NSLayoutConstraint]()) {
