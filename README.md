@@ -13,11 +13,22 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-AutoLayout is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+#### Swift Package Manager
+
+- File > Swift Packages > Add Package Dependency
+- Add `https://github.com/liam-i/AutoLayout.git`
+- Select "Up to Next Minor" with "0.2.2"
+
+#### CocoaPods
 
 ```ruby
-pod 'AutoLayout'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '11.0'
+use_frameworks!
+
+target 'MyApp' do
+  pod 'LPAutoLayout', '~> 0.2.2'
+end
 ```
 
 ## Author
