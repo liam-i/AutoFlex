@@ -1,9 +1,11 @@
 # AutoLayout
 
-[![CI Status](https://img.shields.io/travis/Liam/AutoLayout.svg?style=flat)](https://travis-ci.org/Liam/AutoLayout)
-[![Version](https://img.shields.io/cocoapods/v/AutoLayout.svg?style=flat)](https://cocoapods.org/pods/AutoLayout)
-[![License](https://img.shields.io/cocoapods/l/AutoLayout.svg?style=flat)](https://cocoapods.org/pods/AutoLayout)
-[![Platform](https://img.shields.io/cocoapods/p/AutoLayout.svg?style=flat)](https://cocoapods.org/pods/AutoLayout)
+<!-- [![CI Status](https://img.shields.io/travis/Liam/LPAutoLayout.svg?style=flat)](https://travis-ci.org/Liam/LPAutoLayout) -->
+[![Version](https://img.shields.io/cocoapods/v/LPAutoLayout.svg?style=flat)](https://cocoapods.org/pods/LPAutoLayout)
+[![License](https://img.shields.io/cocoapods/l/LPAutoLayout.svg?style=flat)](https://cocoapods.org/pods/LPAutoLayout)
+[![Platform](https://img.shields.io/cocoapods/p/LPAutoLayout.svg?style=flat)](https://cocoapods.org/pods/LPAutoLayout)
+
+A Swift Autolayout Library for iOS.
 
 ## Example
 
