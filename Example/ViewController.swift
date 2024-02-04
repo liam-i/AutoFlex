@@ -35,7 +35,7 @@ class ViewController: UIViewController {
 
     private func makeConstraints() {
         label.lp.constraints {
-            $0.top.equal(to: view.lp.safeLayout, options: .constant(20))
+            $0.top.equal(to: view.lp.safeGuide, options: .constant(20))
             $0.leading.trailing.equal(to: view, options: .constant(20))
             $0.centerX.equal(to: view)
             constraint = $0.height.equal(toOptions: .constant(constantValue)).first

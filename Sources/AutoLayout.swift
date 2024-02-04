@@ -9,16 +9,27 @@
 import UIKit
 
 // MARK: - AutoLayout
-public struct AutoLayout<ViewType> {
-    private let view: ViewType
+public struct AutoLayout<ExtendedViewType> {
+    private let view: ExtendedViewType
 
-    public init(_ view: ViewType) {
+    public init(_ view: ExtendedViewType) {
         self.view = view
     }
 }
 
-extension AutoLayout where ViewType: UIView {
-    public func constraints(_ closure: (LayoutMarker<ViewType>) -> Void) {
+public protocol AutoLayoutExtended {
+    associatedtype ViewType
+    var lp: AutoLayout<ViewType> { get }
+}
+
+extension AutoLayoutExtended {
+    public var lp: AutoLayout<Self> { AutoLayout(self) }
+}
+
+extension UIView: AutoLayoutExtended {}
+
+extension AutoLayout where ExtendedViewType: UIView {
+    public func constraints(_ closure: (LayoutMarker<ExtendedViewType>) -> Void) {
         view.translatesAutoresizingMaskIntoConstraints = false
 
         let marker = LayoutMarker(view)
@@ -34,25 +45,8 @@ extension AutoLayout where ViewType: UIView {
     public var centerY: NSLayoutYAxisAnchor { view.centerYAnchor }
     public var width: NSLayoutDimension { view.widthAnchor }
     public var height: NSLayoutDimension { view.heightAnchor }
-
-    public var safeLayout: UILayoutGuide {
-        guard #available(iOS 11.0, *) else { return view.layoutMarginsGuide }
-        return view.safeAreaLayoutGuide
-    }
+    public var safeGuide: UILayoutGuide { view.safeAreaLayoutGuide }
 }
-
-// MARK: - LayoutCompatible
-public protocol LayoutCompatible {
-    associatedtype CompatibleAutoLayout
-
-    var lp: CompatibleAutoLayout { get }
-}
-
-extension LayoutCompatible {
-    public var lp: AutoLayout<Self> { AutoLayout(self) }
-}
-
-extension UIView: LayoutCompatible {}
 
 // MARK: - LayoutAnchor
 public protocol LayoutAnchor {}
@@ -73,6 +67,10 @@ public enum LayoutOptions {
 }
 
 /// 将 Integer 和 Float 的字面量自动转为 UILayoutPriority 类型
+///
+/// ```
+///     let prioritey: UILayoutPriority = 1000
+/// ```
 extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
     public typealias FloatLiteralType = Float
     public typealias IntegerLiteralType = Int
@@ -321,10 +319,8 @@ extension LayoutMarker where ViewType: UIView {
     }
 
     private func makeSize(to anchor: LayoutAnchor?, options: LayoutOptionsInfo, type: ConstraintType) -> [NSLayoutConstraint] {
-        var toWidthAnchor: NSLayoutDimension?
-        var toHeightAnchor: NSLayoutDimension?
-        var widthOptions = options
-        var heightOptions = options
+        var toWidthAnchor, toHeightAnchor: NSLayoutDimension?
+        var widthOptions = options, heightOptions = options
 
         switch anchor ?? view.superview {
         case let to as UIView:
@@ -365,8 +361,7 @@ private enum ConstraintType {
         case .greater:  constraint = anchor.constraint(greaterThanOrEqualTo: other, constant: options.constant)
         case .less:     constraint = anchor.constraint(lessThanOrEqualTo: other, constant: options.constant)
         }
-        options.withPriority { constraint.priority = $0 }
-        return constraint
+        return constraint.setPriorityIfNeeded(options.priority)
     }
 
     func constraint(for anchor: NSLayoutXAxisAnchor, to other: NSLayoutXAxisAnchor, options: LayoutOptionsInfo) -> NSLayoutConstraint {
@@ -376,27 +371,25 @@ private enum ConstraintType {
         case .greater:  constraint = anchor.constraint(greaterThanOrEqualTo: other, constant: options.constant)
         case .less:     constraint = anchor.constraint(lessThanOrEqualTo: other, constant: options.constant)
         }
-        options.withPriority { constraint.priority = $0 }
-        return constraint
+        return constraint.setPriorityIfNeeded(options.priority)
     }
 
     func constraint(for anchor: NSLayoutDimension, to other: NSLayoutDimension?, options: LayoutOptionsInfo) -> NSLayoutConstraint {
         let constraint: NSLayoutConstraint
-        if let other = other {
-            switch self {
-            case .equal:    constraint = anchor.constraint(equalTo: other, multiplier: options.multiplier, constant: options.constant)
-            case .greater:  constraint = anchor.constraint(greaterThanOrEqualTo: other, multiplier: options.multiplier, constant: options.constant)
-            case .less:     constraint = anchor.constraint(lessThanOrEqualTo: other, multiplier: options.multiplier, constant: options.constant)
-            }
-        } else {
+        guard let other = other else {
             switch self {
             case .equal:    constraint = anchor.constraint(equalToConstant: options.constant)
             case .greater:  constraint = anchor.constraint(greaterThanOrEqualToConstant: options.constant)
             case .less:     constraint = anchor.constraint(lessThanOrEqualToConstant: options.constant)
             }
+            return constraint.setPriorityIfNeeded(options.priority)
         }
-        options.withPriority { constraint.priority = $0 }
-        return constraint
+        switch self {
+        case .equal:    constraint = anchor.constraint(equalTo: other, multiplier: options.multiplier, constant: options.constant)
+        case .greater:  constraint = anchor.constraint(greaterThanOrEqualTo: other, multiplier: options.multiplier, constant: options.constant)
+        case .less:     constraint = anchor.constraint(lessThanOrEqualTo: other, multiplier: options.multiplier, constant: options.constant)
+        }
+        return constraint.setPriorityIfNeeded(options.priority)
     }
 }
 
@@ -424,11 +417,6 @@ private struct LayoutOptionsInfo {
         constant = newValue
     }
 
-    func withPriority(_ populator: (UILayoutPriority) -> Void) {
-        guard let priority = priority else { return }
-        populator(priority)
-    }
-
     var negated: LayoutOptionsInfo {
         if constant == 0.0 {
             return self
@@ -440,79 +428,10 @@ private struct LayoutOptionsInfo {
     }
 }
 
-//    public func update(constant: CGFloat) {
-//        assert(attributes.isEmpty == false, "ambiguous constraints.")
-//
-//        guard let superview = view.superview else { return assert(false, "superview is nil.") }
-//
-//        func update(with attr: NSLayoutConstraint.Attribute, constant: CGFloat) {
-//            let block: (NSLayoutConstraint) -> Bool = {
-//                if $0.firstAttribute == attr {
-//                    if let first = $0.firstItem as? UIView, first == self.view { return true }
-//                    if let second = $0.secondItem as? UIView, second == self.view { return true }
-//                }
-//                return false
-//            }
-//
-//            if let index = view.constraints.firstIndex(where: block) {
-//                view.constraints[index].constant = constant
-//            } else if let index = superview.constraints.firstIndex(where: block) {
-//                superview.constraints[index].constant = constant
-//            } else {
-//                assert(false, "constraint(\(attr.rawValue)) not found.")
-//            }
-//        }
-//
-//        attributes.forEach {
-//            switch $0 {
-//            case .top:
-//                update(with: .top, constant: constant)
-//            case .bottom:
-//                update(with: .bottom, constant: -constant)
-//            case .leading:
-//                update(with: .leading, constant: constant)
-//            case .trailing:
-//                update(with: .trailing, constant: -constant)
-//            case .centerX:
-//                update(with: .centerX, constant: constant)
-//            case .centerY:
-//                update(with: .centerY, constant: constant)
-//            case .width:
-//                update(with: .width, constant: constant)
-//            case .height:
-//                update(with: .height, constant: constant)
-//            case .edges:
-//                update(with: .top, constant: constant)
-//                update(with: .bottom, constant: -constant)
-//                update(with: .leading, constant: constant)
-//                update(with: .trailing, constant: -constant)
-//            case .size:
-//                update(with: .width, constant: constant)
-//                update(with: .height, constant: constant)
-//            }
-//        }
-//        attributes.removeAll()
-//    }
-
-//      open class NSLayoutXAxisAnchor : NSLayoutAnchor<NSLayoutXAxisAnchor> {
-//          open func anchorWithOffset(to otherAnchor: NSLayoutXAxisAnchor) -> NSLayoutDimension
-//      }
-//      open class NSLayoutYAxisAnchor : NSLayoutAnchor<NSLayoutYAxisAnchor> {
-//          open func anchorWithOffset(to otherAnchor: NSLayoutYAxisAnchor) -> NSLayoutDimension
-//      }
-//      extension NSLayoutXAxisAnchor {
-//          @available(iOS 11.0, *)
-//          open func constraint(equalToSystemSpacingAfter anchor: NSLayoutXAxisAnchor, multiplier: CGFloat) -> NSLayoutConstraint
-//          @available(iOS 11.0, *)
-//          open func constraint(greaterThanOrEqualToSystemSpacingAfter anchor: NSLayoutXAxisAnchor, multiplier: CGFloat) -> NSLayoutConstraint
-//          @available(iOS 11.0, *)
-//          open func constraint(lessThanOrEqualToSystemSpacingAfter anchor: NSLayoutXAxisAnchor, multiplier: CGFloat) -> NSLayoutConstraint
-//      }
-//      extension NSLayoutYAxisAnchor {
-//          @available(iOS 11.0, *)
-//          open func constraint(equalToSystemSpacingBelow anchor: NSLayoutYAxisAnchor, multiplier: CGFloat) -> NSLayoutConstraint
-//          @available(iOS 11.0, *)
-//          open func constraint(greaterThanOrEqualToSystemSpacingBelow anchor: NSLayoutYAxisAnchor, multiplier: CGFloat) -> NSLayoutConstraint
-//          @available(iOS 11.0, *)
-//          open func constraint(lessThanOrEqualToSystemSpacingBelow anchor: NSLayoutYAxisAnchor, multiplier: CGFloat) -> NSLayoutConstraint
-//      }
+extension NSLayoutConstraint {
+    fileprivate func setPriorityIfNeeded(_ priority: UILayoutPriority?) -> NSLayoutConstraint {
+        guard let priority = priority else { return self }
+        self.priority = priority
+        return self
+    }
+}
