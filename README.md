@@ -23,7 +23,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - File > Swift Packages > Add Package Dependency
 - Add `https://github.com/liam-i/AutoLayout.git`
-- Select "Up to Next Minor" with "0.2.2"
+- Select "Up to Next Minor" with "0.2.3"
 
 #### CocoaPods
 
@@ -35,7 +35,7 @@ platform :ios, '11.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'LPAutoLayout', '~> 0.2.2'
+  pod 'LPAutoLayout', '~> 0.2.3'
 end
 ```
 
