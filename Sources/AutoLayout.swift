@@ -45,6 +45,8 @@ extension AutoLayout where ExtendedViewType: UIView {
     public var centerY: NSLayoutYAxisAnchor { view.centerYAnchor }
     public var width: NSLayoutDimension { view.widthAnchor }
     public var height: NSLayoutDimension { view.heightAnchor }
+    public var firstBaseline: NSLayoutYAxisAnchor { view.firstBaselineAnchor }
+    public var lastBaseline: NSLayoutYAxisAnchor { view.lastBaselineAnchor }
     public var safeGuide: UILayoutGuide { view.safeAreaLayoutGuide }
 }
 
@@ -99,7 +101,7 @@ public class LayoutMarker<ViewType> {
         self.view = view
     }
 
-    private enum Attributes { case top, bottom, leading, trailing, centerX, centerY, center, width, height, edges, size }
+    private enum Attributes { case top, bottom, leading, trailing, centerX, centerY, center, width, height, edges, size, firstBaseline, lastBaseline }
     private var attributes = Set<Attributes>()
     private var allConstraints: [NSLayoutConstraint] = []
 }
@@ -116,6 +118,8 @@ extension LayoutMarker where ViewType: UIView {
     public var height: LayoutMarker { add(.height) }
     public var edges: LayoutMarker { add(.edges) }
     public var size: LayoutMarker { add(.size) }
+    public var firstBaseline: LayoutMarker { add(.firstBaseline) }
+    public var lastBaseline: LayoutMarker { add(.lastBaseline) }
 
     @discardableResult
     public func equal(to anchor: LayoutAnchor, constant: CGFloat = 0.0) -> [NSLayoutConstraint] {
@@ -188,17 +192,19 @@ extension LayoutMarker where ViewType: UIView {
 
         let constraints = attributes.reduce(into: [NSLayoutConstraint]()) {
             switch $1 {
-            case .top:      $0.append(makeTop(to: anchor, options: options, type: type))
-            case .bottom:   $0.append(makeBottom(to: anchor, options: options, type: type))
-            case .leading:  $0.append(makeLeading(to: anchor, options: options, type: type))
-            case .trailing: $0.append(makeTrailing(to: anchor, options: options, type: type))
-            case .centerX:  $0.append(makeCenterX(to: anchor, options: options, type: type))
-            case .centerY:  $0.append(makeCenterY(to: anchor, options: options, type: type))
-            case .width:    $0.append(makeWidth(to: anchor, options: options, type: type))
-            case .height:   $0.append(makeHeight(to: anchor, options: options, type: type))
-            case .center:   $0.append(contentsOf: makeCenter(to: anchor, options: options, type: type))
-            case .edges:    $0.append(contentsOf: makeEdges(to: anchor, options: options, type: type))
-            case .size:     $0.append(contentsOf: makeSize(to: anchor, options: options, type: type))
+            case .top:           $0.append(makeTop(to: anchor, options: options, type: type))
+            case .bottom:        $0.append(makeBottom(to: anchor, options: options, type: type))
+            case .leading:       $0.append(makeLeading(to: anchor, options: options, type: type))
+            case .trailing:      $0.append(makeTrailing(to: anchor, options: options, type: type))
+            case .centerX:       $0.append(makeCenterX(to: anchor, options: options, type: type))
+            case .centerY:       $0.append(makeCenterY(to: anchor, options: options, type: type))
+            case .width:         $0.append(makeWidth(to: anchor, options: options, type: type))
+            case .height:        $0.append(makeHeight(to: anchor, options: options, type: type))
+            case .center:        $0.append(contentsOf: makeCenter(to: anchor, options: options, type: type))
+            case .edges:         $0.append(contentsOf: makeEdges(to: anchor, options: options, type: type))
+            case .size:          $0.append(contentsOf: makeSize(to: anchor, options: options, type: type))
+            case .firstBaseline: $0.append(makeFirstBaseline(to: anchor, options: options, type: type))
+            case .lastBaseline:  $0.append(makeLastBaseline(to: anchor, options: options, type: type))
             }
         }
 
@@ -213,7 +219,7 @@ extension LayoutMarker where ViewType: UIView {
             case let to as UIView:              return to.topAnchor
             case let to as NSLayoutYAxisAnchor: return to
             case let to as UILayoutGuide:       return to.topAnchor
-            default: fatalError("Only be `UIView`、`NSLayoutYAxisAnchor` or `UILayoutGuide`")
+            default: fatalError("Can Only be `UIView`、`NSLayoutYAxisAnchor` or `UILayoutGuide`")
             }
         }(), options: options)
     }
@@ -224,7 +230,7 @@ extension LayoutMarker where ViewType: UIView {
             case let to as UIView:              return to.bottomAnchor
             case let to as NSLayoutYAxisAnchor: return to
             case let to as UILayoutGuide:       return to.bottomAnchor
-            default: fatalError("Only be `UIView`、`NSLayoutYAxisAnchor` or `UILayoutGuide`")
+            default: fatalError("Can Only be `UIView`、`NSLayoutYAxisAnchor` or `UILayoutGuide`")
             }
         }(), options: options.negated)
     }
@@ -235,7 +241,7 @@ extension LayoutMarker where ViewType: UIView {
             case let to as UIView:              return to.leadingAnchor
             case let to as NSLayoutXAxisAnchor: return to
             case let to as UILayoutGuide:       return to.leadingAnchor
-            default: fatalError("Only be `UIView`、`NSLayoutXAxisAnchor` or `UILayoutGuide`")
+            default: fatalError("Can Only be `UIView`、`NSLayoutXAxisAnchor` or `UILayoutGuide`")
             }
         }(), options: options)
     }
@@ -246,7 +252,7 @@ extension LayoutMarker where ViewType: UIView {
             case let to as UIView:              return to.trailingAnchor
             case let to as NSLayoutXAxisAnchor: return to
             case let to as UILayoutGuide:       return to.trailingAnchor
-            default: fatalError("Only be `UIView`、`NSLayoutXAxisAnchor` or `UILayoutGuide`")
+            default: fatalError("Can Only be `UIView`、`NSLayoutXAxisAnchor` or `UILayoutGuide`")
             }
         }(), options: options.negated)
     }
@@ -262,7 +268,7 @@ extension LayoutMarker where ViewType: UIView {
             case let to as UIView:              return to.centerXAnchor
             case let to as NSLayoutXAxisAnchor: return to
             case let to as UILayoutGuide:       return to.centerXAnchor
-            default: fatalError("Only be `UIView`、`NSLayoutXAxisAnchor` or `UILayoutGuide`")
+            default: fatalError("Can Only be `UIView`、`NSLayoutXAxisAnchor` or `UILayoutGuide`")
             }
         }(), options: options)
     }
@@ -273,7 +279,7 @@ extension LayoutMarker where ViewType: UIView {
             case let to as UIView:              return to.centerYAnchor
             case let to as NSLayoutYAxisAnchor: return to
             case let to as UILayoutGuide:       return to.centerYAnchor
-            default: fatalError("Only be `UIView`、`NSLayoutYAxisAnchor` or `UILayoutGuide`")
+            default: fatalError("Can Only be `UIView`、`NSLayoutYAxisAnchor` or `UILayoutGuide`")
             }
         }(), options: options)
     }
@@ -284,7 +290,7 @@ extension LayoutMarker where ViewType: UIView {
             case let to as UIView:            return to.widthAnchor
             case let to as NSLayoutDimension: return to
             case let to as UILayoutGuide:     return to.widthAnchor
-            default: fatalError("Only be `UIView`、`NSLayoutDimension` or `UILayoutGuide`")
+            default: fatalError("Can Only be `UIView`、`NSLayoutDimension` or `UILayoutGuide`")
             }
         }(), options: options)
     }
@@ -295,7 +301,7 @@ extension LayoutMarker where ViewType: UIView {
             case let to as UIView:            return to.heightAnchor
             case let to as NSLayoutDimension: return to
             case let to as UILayoutGuide:     return to.heightAnchor
-            default: fatalError("Only be `UIView`、`NSLayoutDimension` or `UILayoutGuide`")
+            default: fatalError("Can Only be `UIView`、`NSLayoutDimension` or `UILayoutGuide`")
             }
         }(), options: options)
     }
@@ -313,8 +319,8 @@ extension LayoutMarker where ViewType: UIView {
                     type.constraint(for: view.bottomAnchor, to: to.bottomAnchor, options: optionsNegated),
                     type.constraint(for: view.leadingAnchor, to: to.leadingAnchor, options: options),
                     type.constraint(for: view.trailingAnchor, to: to.trailingAnchor, options: optionsNegated)]
-        default:
-            fatalError("Only be `UIView` or `UILayoutGuide`")
+        default: 
+            fatalError("Can Only be `UIView` or `UILayoutGuide`")
         }
     }
 
@@ -338,10 +344,30 @@ extension LayoutMarker where ViewType: UIView {
             toWidthAnchor = to.widthAnchor
             toHeightAnchor = to.heightAnchor
         default:
-            fatalError("Only be `UIView`、`CGSize`、`NSLayoutDimension` or `UILayoutGuide`")
+            fatalError("Can Only be `UIView`、`CGSize`、`NSLayoutDimension` or `UILayoutGuide`")
         }
         return [type.constraint(for: view.widthAnchor, to: toWidthAnchor, options: widthOptions),
                 type.constraint(for: view.heightAnchor, to: toHeightAnchor, options: heightOptions)]
+    }
+
+    private func makeFirstBaseline(to anchor: LayoutAnchor?, options: LayoutOptionsInfo, type: ConstraintType) -> NSLayoutConstraint {
+        type.constraint(for: view.firstBaselineAnchor, to: {
+            switch anchor ?? view.superview {
+            case let to as UIView:              return to.firstBaselineAnchor
+            case let to as NSLayoutYAxisAnchor: return to
+            default: fatalError("Can Only be `UIView` or `NSLayoutYAxisAnchor`")
+            }
+        }(), options: options)
+    }
+
+    private func makeLastBaseline(to anchor: LayoutAnchor?, options: LayoutOptionsInfo, type: ConstraintType) -> NSLayoutConstraint {
+        type.constraint(for: view.lastBaselineAnchor, to: {
+            switch anchor ?? view.superview {
+            case let to as UIView:              return to.lastBaselineAnchor
+            case let to as NSLayoutYAxisAnchor: return to
+            default: fatalError("Can Only be `UIView` or `NSLayoutYAxisAnchor`")
+            }
+        }(), options: options)
     }
 
     private func add(_ attr: Attributes) -> Self {

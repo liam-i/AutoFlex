@@ -53,7 +53,7 @@ class ViewController: UIViewController {
             $0.width.equal(toOptions: .constant(250))
         }
         label4.lp.constraints {
-            $0.top.equal(to: label3)
+            $0.top.equal(to: label3.firstBaselineAnchor)
             $0.trailing.equal(to: view.trailingAnchor, constant: 20)
             if let constraint = $0.leading.equal(to: label3.trailingAnchor, constant: 10).first {
                 // 因为 label4.width.priority 小于 label3.width.priority 所以 label4.width 会被压缩
@@ -68,6 +68,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.text = title
         label.numberOfLines = 0
+        label.textColor = .black
         label.layer.borderColor = border.cgColor
         label.layer.borderWidth = 2
         view.addSubview(label)
