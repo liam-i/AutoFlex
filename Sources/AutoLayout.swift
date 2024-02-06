@@ -141,26 +141,6 @@ extension LayoutMarker where ViewType: LayoutView {
     }
 
     @discardableResult
-    public func greaterOrEqual(to anchor: LayoutAnchor, constant: CGFloat = 0.0) -> [NSLayoutConstraint] {
-        equal(to: anchor, info: LayoutOptionsInfo(constant: constant), relation: .greater)
-    }
-
-    @discardableResult
-    public func greaterOrEqual(to anchor: LayoutAnchor, options: LayoutOptions...) -> [NSLayoutConstraint] {
-        equal(to: anchor, info: LayoutOptionsInfo(options), relation: .greater)
-    }
-
-    @discardableResult
-    public func lessOrEqual(to anchor: LayoutAnchor, constant: CGFloat = 0.0) -> [NSLayoutConstraint] {
-        equal(to: anchor, info: LayoutOptionsInfo(constant: constant), relation: .less)
-    }
-
-    @discardableResult
-    public func lessOrEqual(to anchor: LayoutAnchor, options: LayoutOptions...) -> [NSLayoutConstraint] {
-        equal(to: anchor, info: LayoutOptionsInfo(options), relation: .less)
-    }
-
-    @discardableResult
     public func equal(toConstant: CGFloat) -> [NSLayoutConstraint] {
         equal(to: nil, info: LayoutOptionsInfo(constant: toConstant), relation: .equal)
     }
@@ -171,6 +151,16 @@ extension LayoutMarker where ViewType: LayoutView {
     }
 
     @discardableResult
+    public func greaterOrEqual(to anchor: LayoutAnchor, constant: CGFloat = 0.0) -> [NSLayoutConstraint] {
+        equal(to: anchor, info: LayoutOptionsInfo(constant: constant), relation: .greater)
+    }
+
+    @discardableResult
+    public func greaterOrEqual(to anchor: LayoutAnchor, options: LayoutOptions...) -> [NSLayoutConstraint] {
+        equal(to: anchor, info: LayoutOptionsInfo(options), relation: .greater)
+    }
+
+    @discardableResult
     public func greaterOrEqual(toConstant: CGFloat) -> [NSLayoutConstraint] {
         equal(to: nil, info: LayoutOptionsInfo(constant: toConstant), relation: .greater)
     }
@@ -178,6 +168,16 @@ extension LayoutMarker where ViewType: LayoutView {
     @discardableResult
     public func greaterOrEqual(toOptions: LayoutOptions...) -> [NSLayoutConstraint] {
         equal(to: nil, info: LayoutOptionsInfo(toOptions), relation: .greater)
+    }
+
+    @discardableResult
+    public func lessOrEqual(to anchor: LayoutAnchor, constant: CGFloat = 0.0) -> [NSLayoutConstraint] {
+        equal(to: anchor, info: LayoutOptionsInfo(constant: constant), relation: .less)
+    }
+
+    @discardableResult
+    public func lessOrEqual(to anchor: LayoutAnchor, options: LayoutOptions...) -> [NSLayoutConstraint] {
+        equal(to: anchor, info: LayoutOptionsInfo(options), relation: .less)
     }
 
     @discardableResult
@@ -197,7 +197,6 @@ extension LayoutMarker where ViewType: LayoutView {
 
     private func equal(to anchor: LayoutAnchor?, info: LayoutOptionsInfo, relation: Relation) -> [NSLayoutConstraint] {
         //assert(view.superview != nil, "superview is nil.")
-        assert(attributes.isEmpty == false, "ambiguous constraints.")
 
         let constraints = attributes.reduce(into: [NSLayoutConstraint]()) {
             switch $1 {
