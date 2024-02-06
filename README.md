@@ -13,9 +13,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-* iOS 11.0+ 
-* Xcode 14.0+
-* Swift 5.0+
+* iOS 11.0+
+* macOS 11.0+ 
+* tvOS 11.0+
+* Xcode 14.1+
+* Swift 5.7.1+
 
 ## Installation
 
@@ -23,7 +25,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - File > Swift Packages > Add Package Dependency
 - Add `https://github.com/liam-i/AutoLayout.git`
-- Select "Up to Next Minor" with "0.2.3"
+- Select "Up to Next Minor" with "0.2.5"
 
 #### CocoaPods
 
@@ -35,7 +37,7 @@ platform :ios, '11.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'LPAutoLayout', '~> 0.2.3'
+  pod 'LPAutoLayout', '~> 0.2.5'
 end
 ```
 

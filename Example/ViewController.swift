@@ -16,12 +16,6 @@ class ViewController: UIViewController {
     private lazy var label3 = makeLabel(title: "演示 constant 和 Priority 的使用（width:250）", border: .red)
     private lazy var label4 = makeLabel(title: "演示 constant 和 Priority 的使用（width被压缩）", border: .blue)
 
-    deinit {
-        #if DEBUG
-        print("👍👍👍 AutoLayoutViewController is released.")
-        #endif
-    }
-
     private lazy var constantValue: CGFloat = 50
 //    private weak var constraintLeading: Constraint?
     private weak var constraint: NSLayoutConstraint?
