@@ -19,25 +19,25 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        label.lp.constraints {
-            $0.top.equal(to: view.lp.safeGuide, options: .constant(20))
+        label.al.constraints {
+            $0.top.equal(to: view.al.safeGuide, options: .constant(20))
             $0.leading.trailing.equal(to: view, options: .constant(20))
             $0.centerX.equal(to: view)
             $0.height.equal(toOptions: .constant(50))
             //$0.height.equal(to: label.widthAnchor, options: .multiplier(0.7))
         }
-        label2.lp.constraints {
+        label2.al.constraints {
             $0.top.equal(to: label.bottomAnchor, options: .constant(20))
             $0.leading.equal(to: label)
             $0.size.equal(to: label, options: .multiplier(0.5))
         }
 
-        label3.lp.constraints {
+        label3.al.constraints {
             $0.top.equal(to: label2.bottomAnchor, options: .constant(50))
             $0.leading.equal(to: label)
             $0.width.equal(toOptions: .constant(250))
         }
-        label4.lp.constraints {
+        label4.al.constraints {
             $0.top.equal(to: label3.firstBaselineAnchor)
             $0.trailing.equal(to: view.trailingAnchor, constant: 20)
             if let constraint = $0.leading.equal(to: label3.trailingAnchor, constant: 10).first {

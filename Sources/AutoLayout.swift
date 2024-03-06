@@ -29,11 +29,11 @@ public struct AutoLayout<ExtendedViewType> {
 
 public protocol AutoLayoutExtended {
     associatedtype ViewType
-    var lp: AutoLayout<ViewType> { get }
+    var al: AutoLayout<ViewType> { get }
 }
 
 extension AutoLayoutExtended {
-    public var lp: AutoLayout<Self> { AutoLayout(self) }
+    public var al: AutoLayout<Self> { AutoLayout(self) }
 }
 
 extension LayoutView: AutoLayoutExtended {}
