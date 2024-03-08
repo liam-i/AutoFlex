@@ -8,10 +8,12 @@ install! 'cocoapods',
 #use_frameworks!
 use_frameworks! :linkage => :static
 
-target 'Example iOS' do
-  platform :ios, '11.0'
+workspace 'AutoFlex.xcworkspace'
 
-  pod 'LPAutoLayout', :path => './'
+target 'Example iOS' do
+  platform :ios, '12.0'
+
+  pod 'AutoFlex', :path => './'
 
   target 'Example Tests' do
     inherit! :search_paths
@@ -20,13 +22,13 @@ target 'Example iOS' do
 end
 
 target 'Example tvOS' do
-  platform :tvos, '11.0'
+  platform :tvos, '12.0'
 
-  pod 'LPAutoLayout', :path => './'
+  pod 'AutoFlex', :path => './'
 end
 
 target 'Example macOS' do
   platform :macos, '11.0'
 
-  pod 'LPAutoLayout', :path => './'
+  pod 'AutoFlex', :path => './'
 end

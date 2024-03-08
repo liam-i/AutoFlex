@@ -1,6 +1,6 @@
 //
-//  AutoLayout.swift
-//  AutoLayout <https://github.com/liam-i/AutoLayout>
+//  AutoFlex.swift
+//  AutoFlex <https://github.com/liam-i/AutoFlex>
 //
 //  Created by Liam on 2019/8/6.
 //  Copyright © 2019 Liam. All rights reserved.
@@ -18,8 +18,8 @@ public typealias LayoutGuide = NSLayoutGuide
 public typealias LayoutPriority = NSLayoutConstraint.Priority
 #endif
 
-// MARK: - AutoLayout
-public struct AutoLayout<ExtendedViewType> {
+// MARK: - AutoFlex
+public struct AutoFlex<ExtendedViewType> {
     private let view: ExtendedViewType
 
     public init(_ view: ExtendedViewType) {
@@ -27,18 +27,18 @@ public struct AutoLayout<ExtendedViewType> {
     }
 }
 
-public protocol AutoLayoutExtended {
+public protocol AutoFlexExtended {
     associatedtype ViewType
-    var al: AutoLayout<ViewType> { get }
+    var af: AutoFlex<ViewType> { get }
 }
 
-extension AutoLayoutExtended {
-    public var al: AutoLayout<Self> { AutoLayout(self) }
+extension AutoFlexExtended {
+    public var af: AutoFlex<Self> { AutoFlex(self) }
 }
 
-extension LayoutView: AutoLayoutExtended {}
+extension LayoutView: AutoFlexExtended {}
 
-extension AutoLayout where ExtendedViewType: LayoutView {
+extension AutoFlex where ExtendedViewType: LayoutView {
     public func constraints(_ closure: (LayoutMarker<ExtendedViewType>) -> Void) {
         view.translatesAutoresizingMaskIntoConstraints = false
 

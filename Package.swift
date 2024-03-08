@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "AutoLayout",
+    name: "AutoFlex",
     platforms: [
         .iOS(.v12),
         .macOS(.v11),
@@ -12,11 +12,11 @@ let package = Package(
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(name: "AutoLayout", targets: ["AutoLayout"]),
+        .library(name: "AutoFlex", targets: ["AutoFlex"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        .target(name: "AutoLayout", path: "Sources"),
+        .target(name: "AutoFlex", path: "Sources"),
     ]
 )

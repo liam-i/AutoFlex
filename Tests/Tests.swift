@@ -1,5 +1,5 @@
 import XCTest
-import LPAutoLayout
+import AutoFlex
 
 class Tests: XCTestCase {
     override func setUpWithError() throws {

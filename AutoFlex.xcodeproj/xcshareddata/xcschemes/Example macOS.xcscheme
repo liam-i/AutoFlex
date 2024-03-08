@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0CA4947B2B72170800C0C8C7"
-               BuildableName = "Example tvOS.app"
-               BlueprintName = "Example tvOS"
-               ReferencedContainer = "container:AutoLayout.xcodeproj">
+               BlueprintIdentifier = "0CA4949E2B721A0900C0C8C7"
+               BuildableName = "Example macOS.app"
+               BlueprintName = "Example macOS"
+               ReferencedContainer = "container:AutoFlex.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,10 +43,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0CA4947B2B72170800C0C8C7"
-            BuildableName = "Example tvOS.app"
-            BlueprintName = "Example tvOS"
-            ReferencedContainer = "container:AutoLayout.xcodeproj">
+            BlueprintIdentifier = "0CA4949E2B721A0900C0C8C7"
+            BuildableName = "Example macOS.app"
+            BlueprintName = "Example macOS"
+            ReferencedContainer = "container:AutoFlex.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -60,10 +60,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0CA4947B2B72170800C0C8C7"
-            BuildableName = "Example tvOS.app"
-            BlueprintName = "Example tvOS"
-            ReferencedContainer = "container:AutoLayout.xcodeproj">
+            BlueprintIdentifier = "0CA4949E2B721A0900C0C8C7"
+            BuildableName = "Example macOS.app"
+            BlueprintName = "Example macOS"
+            ReferencedContainer = "container:AutoFlex.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

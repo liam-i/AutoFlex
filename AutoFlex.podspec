@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint AutoLayout.podspec' to ensure this is a
+# Be sure to run `pod lib lint AutoFlex.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,29 +7,29 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'LPAutoLayout'
-  s.version          = '0.2.5'
-  s.summary          = 'Auto layout framework.'
+  s.name             = 'AutoFlex'
+  s.version          = '0.3.0'
+  s.summary          = 'An auto layout framework.'
 
   s.description      = <<-DESC
-                        An auto layout framework.
+                        A Swift Autolayout Library for iOS, tvOS and macOS.
                        DESC
 
-  s.homepage         = 'https://github.com/liam-i/AutoLayout'
+  s.homepage         = 'https://github.com/liam-i/AutoFlex'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Liam' => 'liam_i@163.com' }
-  s.source           = { :git => 'https://github.com/liam-i/AutoLayout.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/liam-i/AutoFlex.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '12.0'
+  s.tvos.deployment_target = '12.0'
   s.macos.deployment_target = '11.0'
-  s.tvos.deployment_target = '11.0'
 
   s.swift_versions = ['5.0']
 
   s.source_files = 'Sources/**/*'
 
   # s.resource_bundles = {
-  #   'AutoLayout' => ['Sources/Assets/*.png']
+  #   'AutoFlex' => ['Sources/Assets/*.png']
   # }
 
   # s.public_header_files = 'Sources/Classes/**/*.h'

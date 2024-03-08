@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AutoLayout
+//  AutoFlex
 //
 //  Created by Liam on 12/03/2021.
 //  Copyright (c) 2021 Liam. All rights reserved.

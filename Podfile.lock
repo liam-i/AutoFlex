@@ -1,16 +1,16 @@
 PODS:
-  - LPAutoLayout (0.2.5)
+  - AutoFlex (0.3.0)
 
 DEPENDENCIES:
-  - LPAutoLayout (from `./`)
+  - AutoFlex (from `./`)
 
 EXTERNAL SOURCES:
-  LPAutoLayout:
+  AutoFlex:
     :path: "./"
 
 SPEC CHECKSUMS:
-  LPAutoLayout: fc2cabfc8099da00ab5752e5990ca2aae6610c4f
+  AutoFlex: 4d5b4ad987ead65f434d7dc85ebeed0c2a676bbd
 
-PODFILE CHECKSUM: 3dd900cd873ca789e0310e89d66ebcbb42655037
+PODFILE CHECKSUM: bd6411928548982958ec26e733ed1ef62dff8926
 
-COCOAPODS: 1.15.0
+COCOAPODS: 1.15.2
