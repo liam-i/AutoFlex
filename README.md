@@ -25,7 +25,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - File > Swift Packages > Add Package Dependency
 - Add `https://github.com/liam-i/AutoFlex.git`
-- Select "Up to Next Minor" with "0.2.5"
+- Select "Up to Next Minor" with "0.3.0"
 
 #### CocoaPods
 
@@ -37,7 +37,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'AutoFlex', '~> 0.2.5'
+  pod 'AutoFlex', '~> 0.3.0'
 end
 ```
 
