@@ -1,0 +1,16 @@
+PODS:
+  - AutoFlex (0.3.0)
+
+DEPENDENCIES:
+  - AutoFlex (from `./`)
+
+EXTERNAL SOURCES:
+  AutoFlex:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  AutoFlex: 4d5b4ad987ead65f434d7dc85ebeed0c2a676bbd
+
+PODFILE CHECKSUM: bd6411928548982958ec26e733ed1ef62dff8926
+
+COCOAPODS: 1.15.2

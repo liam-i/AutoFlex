@@ -1,0 +1,6 @@
+framework module AutoFlex {
+  umbrella header "AutoFlex-tvOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

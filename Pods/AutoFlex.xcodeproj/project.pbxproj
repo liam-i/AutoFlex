@@ -1,0 +1,725 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		073DD9F70B768E3AB99FBB3ED41E23DB /* AutoFlex-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 211B279816EB91C49AAB5D3EFF81794F /* AutoFlex-iOS-dummy.m */; };
+		0916B8DA3A5E7B0C7C3D92F9B797836D /* AutoFlex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC7B6D3A0B97133708195B3B15B2391 /* AutoFlex.swift */; };
+		11B36A1FF0F7D2D598B85C456C11E77D /* AutoFlex-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BBECED61B133276343A36258F95B22 /* AutoFlex-tvOS-dummy.m */; };
+		30D25C80B04FF2D81AB23F33C5EEB933 /* AutoFlex-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C264D3EFE0F27307FFA87732305073F8 /* AutoFlex-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F599B921AF5C94E367029ED7A86B2DF /* AutoFlex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC7B6D3A0B97133708195B3B15B2391 /* AutoFlex.swift */; };
+		52AE5810CF5E2B3983DB014AD16B106D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C57A95C5477246B72957629D8DDB746 /* Cocoa.framework */; };
+		A3EC26CC5D0375F1EED57C5881E09886 /* AutoFlex-tvOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C5F5406EA26042518C6FD0B0C521D26 /* AutoFlex-tvOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9909497B28AAF50C40CDE913884F7F8 /* AutoFlex-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D2B432FA690EA6B646BC9635BF95323 /* AutoFlex-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC1A09F03052D95AEABD2EDD0333E548 /* AutoFlex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC7B6D3A0B97133708195B3B15B2391 /* AutoFlex.swift */; };
+		E0354BFC9A920021FA95E4FF149EEA81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AAD1E1319FB6E514FF2CCCCB8D5DD23 /* Foundation.framework */; };
+		E5D5E8AE5B3EB239AB77198F17D17B80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104FBBCBD2BD1F86C1E089738CD7C8D6 /* Foundation.framework */; };
+		EA790751E7EF11B45F4DD336011DA264 /* AutoFlex-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA6FCC9C5F43823931FD3513D81C30 /* AutoFlex-macOS-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		006E307F4A26D5074DA1C77D9D46F8B0 /* AutoFlex-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "AutoFlex-macOS.debug.xcconfig"; path = "../AutoFlex-macOS/AutoFlex-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		0AF0242A5DAE6D5E3AD4C3BA62D38DA3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		104FBBCBD2BD1F86C1E089738CD7C8D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		211B279816EB91C49AAB5D3EFF81794F /* AutoFlex-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AutoFlex-iOS-dummy.m"; sourceTree = "<group>"; };
+		2D2B432FA690EA6B646BC9635BF95323 /* AutoFlex-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AutoFlex-iOS-umbrella.h"; sourceTree = "<group>"; };
+		381DE27ED475B2EA8F8E9C6A60587598 /* AutoFlex-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "AutoFlex-tvOS.release.xcconfig"; path = "../AutoFlex-tvOS/AutoFlex-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		3C5F5406EA26042518C6FD0B0C521D26 /* AutoFlex-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AutoFlex-tvOS-umbrella.h"; path = "../AutoFlex-tvOS/AutoFlex-tvOS-umbrella.h"; sourceTree = "<group>"; };
+		4C57A95C5477246B72957629D8DDB746 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		5AAD1E1319FB6E514FF2CCCCB8D5DD23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5C04CC97717FA30907457E23542CCDD3 /* AutoFlex-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "AutoFlex-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		63BBECED61B133276343A36258F95B22 /* AutoFlex-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AutoFlex-tvOS-dummy.m"; path = "../AutoFlex-tvOS/AutoFlex-tvOS-dummy.m"; sourceTree = "<group>"; };
+		6B45DAA45419BE6CE050B70FA29148F1 /* AutoFlex-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "AutoFlex-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6CF7484BC452C909778C4EF327FC756D /* AutoFlex-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "AutoFlex-tvOS.debug.xcconfig"; path = "../AutoFlex-tvOS/AutoFlex-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7DC3DF7049FA128AD88FBFB9ECD01F8E /* AutoFlex-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "AutoFlex-macOS.modulemap"; path = "../AutoFlex-macOS/AutoFlex-macOS.modulemap"; sourceTree = "<group>"; };
+		90DA6FCC9C5F43823931FD3513D81C30 /* AutoFlex-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AutoFlex-macOS-dummy.m"; path = "../AutoFlex-macOS/AutoFlex-macOS-dummy.m"; sourceTree = "<group>"; };
+		922726A69D24C6479ADBD264257E5B31 /* AutoFlex-tvOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "AutoFlex-tvOS-Info.plist"; path = "../AutoFlex-tvOS/AutoFlex-tvOS-Info.plist"; sourceTree = "<group>"; };
+		974827F9E61CBB3F1F1B6289796BF46D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		9E1EF738FD24E2F60A2E7D217A1C3F14 /* AutoFlex-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AutoFlex-macOS-prefix.pch"; path = "../AutoFlex-macOS/AutoFlex-macOS-prefix.pch"; sourceTree = "<group>"; };
+		A434B623008C43D0E1BC882C8886918B /* AutoFlex-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "AutoFlex-iOS.modulemap"; sourceTree = "<group>"; };
+		A72D1466AB91B92CCC55588ACAA52E29 /* AutoFlex-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "AutoFlex-macOS-Info.plist"; path = "../AutoFlex-macOS/AutoFlex-macOS-Info.plist"; sourceTree = "<group>"; };
+		C01EDB7047195A733A1B5A481FA8948B /* AutoFlex-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "AutoFlex-iOS"; path = AutoFlex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C264D3EFE0F27307FFA87732305073F8 /* AutoFlex-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AutoFlex-macOS-umbrella.h"; path = "../AutoFlex-macOS/AutoFlex-macOS-umbrella.h"; sourceTree = "<group>"; };
+		C9EE3E6B1ACC015CA2F4CDE4EE01F5C6 /* AutoFlex-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "AutoFlex-tvOS.modulemap"; path = "../AutoFlex-tvOS/AutoFlex-tvOS.modulemap"; sourceTree = "<group>"; };
+		D72BB75792C2293C1C84FFDEED524472 /* AutoFlex-tvOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "AutoFlex-tvOS"; path = AutoFlex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD90BFAC362B95FA3F123B2B00C5AFE6 /* AutoFlex-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AutoFlex-iOS-Info.plist"; sourceTree = "<group>"; };
+		E6077EC923CD756191BAEE18A15F73B6 /* AutoFlex-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AutoFlex-iOS-prefix.pch"; sourceTree = "<group>"; };
+		E9B1BB7591070371002C40CFF06E4877 /* AutoFlex.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AutoFlex.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ED519E82E29756C8826D377A5AB66C9D /* AutoFlex-macOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "AutoFlex-macOS"; path = AutoFlex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F826694DE46812CEAD1C85A16BF04453 /* AutoFlex-tvOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AutoFlex-tvOS-prefix.pch"; path = "../AutoFlex-tvOS/AutoFlex-tvOS-prefix.pch"; sourceTree = "<group>"; };
+		F9EED8099217D760D1884DA0DF95D586 /* AutoFlex-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "AutoFlex-macOS.release.xcconfig"; path = "../AutoFlex-macOS/AutoFlex-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		FEC7B6D3A0B97133708195B3B15B2391 /* AutoFlex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutoFlex.swift; path = Sources/AutoFlex.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F27DB451D3FEA4DD0F1EA8ACA64C4E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D5E8AE5B3EB239AB77198F17D17B80 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8450BFCB76A47A0EB50CBCE701A6E30D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52AE5810CF5E2B3983DB014AD16B106D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88F73405335313DCACC0AB5E161A2B29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0354BFC9A920021FA95E4FF149EEA81 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20C83E2F658081BD45D48FF9A6BB59EE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A434B623008C43D0E1BC882C8886918B /* AutoFlex-iOS.modulemap */,
+				211B279816EB91C49AAB5D3EFF81794F /* AutoFlex-iOS-dummy.m */,
+				DD90BFAC362B95FA3F123B2B00C5AFE6 /* AutoFlex-iOS-Info.plist */,
+				E6077EC923CD756191BAEE18A15F73B6 /* AutoFlex-iOS-prefix.pch */,
+				2D2B432FA690EA6B646BC9635BF95323 /* AutoFlex-iOS-umbrella.h */,
+				6B45DAA45419BE6CE050B70FA29148F1 /* AutoFlex-iOS.debug.xcconfig */,
+				5C04CC97717FA30907457E23542CCDD3 /* AutoFlex-iOS.release.xcconfig */,
+				7DC3DF7049FA128AD88FBFB9ECD01F8E /* AutoFlex-macOS.modulemap */,
+				90DA6FCC9C5F43823931FD3513D81C30 /* AutoFlex-macOS-dummy.m */,
+				A72D1466AB91B92CCC55588ACAA52E29 /* AutoFlex-macOS-Info.plist */,
+				9E1EF738FD24E2F60A2E7D217A1C3F14 /* AutoFlex-macOS-prefix.pch */,
+				C264D3EFE0F27307FFA87732305073F8 /* AutoFlex-macOS-umbrella.h */,
+				006E307F4A26D5074DA1C77D9D46F8B0 /* AutoFlex-macOS.debug.xcconfig */,
+				F9EED8099217D760D1884DA0DF95D586 /* AutoFlex-macOS.release.xcconfig */,
+				C9EE3E6B1ACC015CA2F4CDE4EE01F5C6 /* AutoFlex-tvOS.modulemap */,
+				63BBECED61B133276343A36258F95B22 /* AutoFlex-tvOS-dummy.m */,
+				922726A69D24C6479ADBD264257E5B31 /* AutoFlex-tvOS-Info.plist */,
+				F826694DE46812CEAD1C85A16BF04453 /* AutoFlex-tvOS-prefix.pch */,
+				3C5F5406EA26042518C6FD0B0C521D26 /* AutoFlex-tvOS-umbrella.h */,
+				6CF7484BC452C909778C4EF327FC756D /* AutoFlex-tvOS.debug.xcconfig */,
+				381DE27ED475B2EA8F8E9C6A60587598 /* AutoFlex-tvOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/AutoFlex-iOS";
+			sourceTree = "<group>";
+		};
+		35F688372760DB8DECB0012E316BF416 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				5AAD1E1319FB6E514FF2CCCCB8D5DD23 /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		3F41D7EE9DF313E6DC9553E6553CB445 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB10AC220B224E0646FC1599B70F2D57 /* iOS */,
+				D3AEB48D4FA065B9F21730D62116A407 /* OS X */,
+				35F688372760DB8DECB0012E316BF416 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		473D3EC1AFFBA52259CC79B8CBFBF63E /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				E9B1BB7591070371002C40CFF06E4877 /* AutoFlex.podspec */,
+				0AF0242A5DAE6D5E3AD4C3BA62D38DA3 /* LICENSE */,
+				974827F9E61CBB3F1F1B6289796BF46D /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		54B4BD1470DD1BDA85BDB6552C491D86 /* AutoFlex */ = {
+			isa = PBXGroup;
+			children = (
+				FEC7B6D3A0B97133708195B3B15B2391 /* AutoFlex.swift */,
+				473D3EC1AFFBA52259CC79B8CBFBF63E /* Pod */,
+				20C83E2F658081BD45D48FF9A6BB59EE /* Support Files */,
+			);
+			name = AutoFlex;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		550EC06369D723240705FB70E567C675 = {
+			isa = PBXGroup;
+			children = (
+				54B4BD1470DD1BDA85BDB6552C491D86 /* AutoFlex */,
+				3F41D7EE9DF313E6DC9553E6553CB445 /* Frameworks */,
+				A758E1BE39F4F1D2E7C100CA5CAA33DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A758E1BE39F4F1D2E7C100CA5CAA33DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C01EDB7047195A733A1B5A481FA8948B /* AutoFlex-iOS */,
+				ED519E82E29756C8826D377A5AB66C9D /* AutoFlex-macOS */,
+				D72BB75792C2293C1C84FFDEED524472 /* AutoFlex-tvOS */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB10AC220B224E0646FC1599B70F2D57 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				104FBBCBD2BD1F86C1E089738CD7C8D6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D3AEB48D4FA065B9F21730D62116A407 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				4C57A95C5477246B72957629D8DDB746 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3F8BD849665CF7491032E0395E87052E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9909497B28AAF50C40CDE913884F7F8 /* AutoFlex-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E37BEDDA929B971AC76DE3ECC1600A8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3EC26CC5D0375F1EED57C5881E09886 /* AutoFlex-tvOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6061375F1EF5205170121853B80C06E3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30D25C80B04FF2D81AB23F33C5EEB933 /* AutoFlex-macOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5543D74BC4F7D9AA7EFF8414643C3D89 /* AutoFlex-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7986F78E36B9DCB304030FDE23B32642 /* Build configuration list for PBXNativeTarget "AutoFlex-macOS" */;
+			buildPhases = (
+				6061375F1EF5205170121853B80C06E3 /* Headers */,
+				A3E24F52AD9FBAF8457CEBC6FCBDEB94 /* Sources */,
+				8450BFCB76A47A0EB50CBCE701A6E30D /* Frameworks */,
+				DEDB3F5C24D08851661DEAC2F5BB98DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AutoFlex-macOS";
+			productName = AutoFlex;
+			productReference = ED519E82E29756C8826D377A5AB66C9D /* AutoFlex-macOS */;
+			productType = "com.apple.product-type.framework";
+		};
+		E8EFEDE9CD9E90BF3BA671FB523412ED /* AutoFlex-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CD68BB49B50C8B7DEB0FB441C9F3C94 /* Build configuration list for PBXNativeTarget "AutoFlex-tvOS" */;
+			buildPhases = (
+				5E37BEDDA929B971AC76DE3ECC1600A8 /* Headers */,
+				573732FB3D84BA11DE6BCEC7148F2D4C /* Sources */,
+				88F73405335313DCACC0AB5E161A2B29 /* Frameworks */,
+				BCE054ACCE6FE4EDD45A394FFE33EA29 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AutoFlex-tvOS";
+			productName = AutoFlex;
+			productReference = D72BB75792C2293C1C84FFDEED524472 /* AutoFlex-tvOS */;
+			productType = "com.apple.product-type.framework";
+		};
+		FEA7D4BE81D79820B98813D53A6B0E63 /* AutoFlex-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5522E7E2A6AC16AD998E6D717A1652C0 /* Build configuration list for PBXNativeTarget "AutoFlex-iOS" */;
+			buildPhases = (
+				3F8BD849665CF7491032E0395E87052E /* Headers */,
+				BAACA3F7E17D822EA020459ADF6500C2 /* Sources */,
+				7F27DB451D3FEA4DD0F1EA8ACA64C4E1 /* Frameworks */,
+				6000621CB3D63EF455089DB2DAA5132D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AutoFlex-iOS";
+			productName = AutoFlex;
+			productReference = C01EDB7047195A733A1B5A481FA8948B /* AutoFlex-iOS */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49A3A48B2A210A414EBADA75413D4F28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 3416340507E5760DE4C4D28D4ABFB90D /* Build configuration list for PBXProject "AutoFlex" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 550EC06369D723240705FB70E567C675;
+			productRefGroup = A758E1BE39F4F1D2E7C100CA5CAA33DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FEA7D4BE81D79820B98813D53A6B0E63 /* AutoFlex-iOS */,
+				5543D74BC4F7D9AA7EFF8414643C3D89 /* AutoFlex-macOS */,
+				E8EFEDE9CD9E90BF3BA671FB523412ED /* AutoFlex-tvOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6000621CB3D63EF455089DB2DAA5132D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE054ACCE6FE4EDD45A394FFE33EA29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEDB3F5C24D08851661DEAC2F5BB98DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		573732FB3D84BA11DE6BCEC7148F2D4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC1A09F03052D95AEABD2EDD0333E548 /* AutoFlex.swift in Sources */,
+				11B36A1FF0F7D2D598B85C456C11E77D /* AutoFlex-tvOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3E24F52AD9FBAF8457CEBC6FCBDEB94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0916B8DA3A5E7B0C7C3D92F9B797836D /* AutoFlex.swift in Sources */,
+				EA790751E7EF11B45F4DD336011DA264 /* AutoFlex-macOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAACA3F7E17D822EA020459ADF6500C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F599B921AF5C94E367029ED7A86B2DF /* AutoFlex.swift in Sources */,
+				073DD9F70B768E3AB99FBB3ED41E23DB /* AutoFlex-iOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		008A92CDFA574F6C5D3FC43E13681DC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C04CC97717FA30907457E23542CCDD3 /* AutoFlex-iOS.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AutoFlex-iOS/AutoFlex-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AutoFlex-iOS/AutoFlex-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/AutoFlex-iOS/AutoFlex-iOS.modulemap";
+				PRODUCT_MODULE_NAME = AutoFlex;
+				PRODUCT_NAME = AutoFlex;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		358417AE535BFC9CF2DBD5C8624A93F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CF7484BC452C909778C4EF327FC756D /* AutoFlex-tvOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AutoFlex-tvOS/AutoFlex-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AutoFlex-tvOS/AutoFlex-tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/AutoFlex-tvOS/AutoFlex-tvOS.modulemap";
+				PRODUCT_MODULE_NAME = AutoFlex;
+				PRODUCT_NAME = AutoFlex;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3F1F6A0E2EF8CDEBD157E88AAFE070A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 006E307F4A26D5074DA1C77D9D46F8B0 /* AutoFlex-macOS.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AutoFlex-macOS/AutoFlex-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AutoFlex-macOS/AutoFlex-macOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MODULEMAP_FILE = "Target Support Files/AutoFlex-macOS/AutoFlex-macOS.modulemap";
+				PRODUCT_MODULE_NAME = AutoFlex;
+				PRODUCT_NAME = AutoFlex;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8DC90B365A3865CD9B653B532D448110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B45DAA45419BE6CE050B70FA29148F1 /* AutoFlex-iOS.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AutoFlex-iOS/AutoFlex-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AutoFlex-iOS/AutoFlex-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/AutoFlex-iOS/AutoFlex-iOS.modulemap";
+				PRODUCT_MODULE_NAME = AutoFlex;
+				PRODUCT_NAME = AutoFlex;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ABAF053C24B4B7D79D12DE79BDF0F73D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 381DE27ED475B2EA8F8E9C6A60587598 /* AutoFlex-tvOS.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AutoFlex-tvOS/AutoFlex-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AutoFlex-tvOS/AutoFlex-tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/AutoFlex-tvOS/AutoFlex-tvOS.modulemap";
+				PRODUCT_MODULE_NAME = AutoFlex;
+				PRODUCT_NAME = AutoFlex;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E17F8188F961B4AF571A2B095D642614 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Release;
+		};
+		F9120AC42BF66B7E86CF3548E5B2C670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9EED8099217D760D1884DA0DF95D586 /* AutoFlex-macOS.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AutoFlex-macOS/AutoFlex-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AutoFlex-macOS/AutoFlex-macOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MODULEMAP_FILE = "Target Support Files/AutoFlex-macOS/AutoFlex-macOS.modulemap";
+				PRODUCT_MODULE_NAME = AutoFlex;
+				PRODUCT_NAME = AutoFlex;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FE3F2AC216CCEDDB2BBED4C32E839356 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3416340507E5760DE4C4D28D4ABFB90D /* Build configuration list for PBXProject "AutoFlex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE3F2AC216CCEDDB2BBED4C32E839356 /* Debug */,
+				E17F8188F961B4AF571A2B095D642614 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5522E7E2A6AC16AD998E6D717A1652C0 /* Build configuration list for PBXNativeTarget "AutoFlex-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DC90B365A3865CD9B653B532D448110 /* Debug */,
+				008A92CDFA574F6C5D3FC43E13681DC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7986F78E36B9DCB304030FDE23B32642 /* Build configuration list for PBXNativeTarget "AutoFlex-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F1F6A0E2EF8CDEBD157E88AAFE070A3 /* Debug */,
+				F9120AC42BF66B7E86CF3548E5B2C670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CD68BB49B50C8B7DEB0FB441C9F3C94 /* Build configuration list for PBXNativeTarget "AutoFlex-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				358417AE535BFC9CF2DBD5C8624A93F0 /* Debug */,
+				ABAF053C24B4B7D79D12DE79BDF0F73D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49A3A48B2A210A414EBADA75413D4F28 /* Project object */;
+}
