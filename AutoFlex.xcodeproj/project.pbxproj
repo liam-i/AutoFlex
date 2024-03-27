@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C2F2A122BB4299B00D29B9C /* Package@swift-5.7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-5.7.swift"; sourceTree = "<group>"; };
 		0CA4947C2B72170800C0C8C7 /* Example tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CA494832B72170800C0C8C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CA494852B72170900C0C8C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -199,6 +200,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				0C2F2A122BB4299B00D29B9C /* Package@swift-5.7.swift */,
 				E829E9E62B4EEB3700D85F4B /* Package.swift */,
 				C74A81257DFE3AACA5A6ED60 /* AutoFlex.podspec */,
 				BBA5C86D679C3C8AF3CA9E0F /* README.md */,
