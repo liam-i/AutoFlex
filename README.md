@@ -26,7 +26,7 @@ A Swift Autolayout Library for iOS, tvOS and macOS.
 If you are using the [Swift Package Manager](https://www.swift.org/documentation/package-manager), add a dependency to your `Package.swift` file and import the AutoFlex library into the desired targets:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/liam-i/AutoFlex.git", from: "0.3.3")
+    .package(url: "https://github.com/liam-i/AutoFlex.git", from: "0.3.5")
 ],
 targets: [
     .target(
@@ -42,7 +42,7 @@ If you are using Xcode, then you should:
 
 - File > Swift Packages > Add Package Dependency
 - Add `https://github.com/liam-i/AutoFlex.git`
-- Select "Up to Next Minor" with "0.3.3"
+- Select "Up to Next Minor" with "0.3.5"
 
 > [!TIP]
 > For detailed tutorials, see: [Apple Docs](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app)
@@ -59,7 +59,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'AutoFlex', '~> 0.3.3'
+  pod 'AutoFlex', '~> 0.3.5'
 end
 ```
 
@@ -73,7 +73,7 @@ And run `pod install`.
 If you're using [Carthage](https://github.com/Carthage/Carthage), add this to your `Cartfile`:
 
 ```ruby
-github "liam-i/AutoFlex" ~> 0.3.3
+github "liam-i/AutoFlex" ~> 0.3.5
 ```
 
 And run `carthage update --platform iOS --use-xcframeworks`.

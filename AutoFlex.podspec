@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AutoFlex'
-  s.version          = '0.3.3'
+  s.version          = '0.3.5'
   s.summary          = 'An auto layout framework.'
 
   s.description      = <<-DESC

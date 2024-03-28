@@ -1,5 +1,5 @@
 PODS:
-  - AutoFlex (0.3.3)
+  - AutoFlex (0.3.5)
 
 DEPENDENCIES:
   - AutoFlex (from `./`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  AutoFlex: e7401700b50f532fe2400af4cc18706ddf3ff1eb
+  AutoFlex: 03910fcbe01fa8d3705588912a44723a061af763
 
 PODFILE CHECKSUM: bd6411928548982958ec26e733ed1ef62dff8926
 
