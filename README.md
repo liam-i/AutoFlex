@@ -2,7 +2,7 @@
 
 <!-- [![CI Status](https://img.shields.io/travis/Liam/AutoFlex.svg?style=flat)](https://travis-ci.org/Liam/AutoFlex) -->
 [![Swift](https://img.shields.io/badge/Swift-5.7_5.8_5.9_5.10-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.7_5.8_5.9_5.10-Orange?style=flat-square)
-[![Platforms](https://img.shields.io/badge/Platforms-iOS_tvOS_macOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-iOS_tvOS_macOS-Green?style=flat-square)
+[![Platforms](https://img.shields.io/badge/Platforms-iOS_tvOS_macOS_visionOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-iOS_tvOS_macOS_visionOS-Green?style=flat-square)
 [![CocoaPods](https://img.shields.io/cocoapods/v/AutoFlex.svg?style=flat)](https://cocoapods.org/pods/AutoFlex)
 [![SPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager)
 [![Carthage](https://img.shields.io/badge/Carthage-supported-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
