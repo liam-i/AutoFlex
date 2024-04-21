@@ -19,20 +19,30 @@ public typealias LayoutPriority = NSLayoutConstraint.Priority
 #endif
 
 // MARK: - AutoFlex
+
+/// A Swift Autolayout Library for iOS, tvOS and macOS.
 public struct AutoFlex<ExtendedViewType> {
+    /// Stores the view-type of any extended view type.
     private let view: ExtendedViewType
 
+    /// Create an instance from the provided value.
+    ///
+    /// - Parameter view: Instance being extended.
     public init(_ view: ExtendedViewType) {
         self.view = view
     }
 }
 
+/// Protocol describing the `af` extension points for AutoFlex extended types.
 public protocol AutoFlexExtended {
+    /// Type being extended.
     associatedtype ViewType
+    /// Instance AutoFlex extension point.
     var af: AutoFlex<ViewType> { get }
 }
 
 extension AutoFlexExtended {
+    /// Instance AutoFlex extension point.
     public var af: AutoFlex<Self> { AutoFlex(self) }
 }
 
