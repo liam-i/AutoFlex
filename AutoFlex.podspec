@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AutoFlex'
-  s.version          = '0.3.5'
+  s.version          = '0.3.6'
   s.summary          = 'An auto layout framework.'
 
   s.description      = <<-DESC
@@ -36,9 +36,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Sources/**/*.swift'
 
-  # s.resource_bundles = {
-  #   'AutoFlex' => ['Sources/Assets/*.png']
-  # }
+  s.resource_bundles = {'AutoFlex' => ['Sources/PrivacyInfo.xcprivacy']}
 
   # s.public_header_files = 'Sources/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
