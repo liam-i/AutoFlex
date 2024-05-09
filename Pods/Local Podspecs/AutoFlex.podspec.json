@@ -15,6 +15,8 @@
     "git": "https://github.com/liam-i/AutoFlex.git",
     "tag": "0.3.5"
   },
+  "social_media_url": "https://liam-i.github.io",
+  "cocoapods_version": ">= 1.13.0",
   "platforms": {
     "ios": "12.0",
     "tvos": "12.0",
@@ -24,6 +26,6 @@
   "swift_versions": [
     "5.0"
   ],
-  "source_files": "Sources/**/*",
+  "source_files": "Sources/**/*.swift",
   "swift_version": "5.0"
 }
